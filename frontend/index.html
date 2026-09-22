@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AskDocs</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>AskDocs</h1>
+      <p class="subtitle">基于知识库的 AI 问答助手</p>
+    </header>
+
+    <main>
+      <section class="upload">
+        <input type="file" id="fileInput" accept=".pdf,.md,.docx,.txt" />
+        <button id="uploadBtn">上传文档</button>
+        <span id="uploadStatus" class="status"></span>
+      </section>
+
+      <section class="chat-box" id="chatBox">
+        <div class="empty">还没有对话。试试上传一个文档，然后问个问题。</div>
+      </section>
+
+      <section class="input">
+        <input
+          type="text"
+          id="questionInput"
+          placeholder="输入你的问题..."
+          autocomplete="off"
+        />
+        <button id="sendBtn">发送</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js?v=2"></script>
+</body>
+</html>

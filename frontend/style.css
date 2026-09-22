@@ -1,0 +1,184 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #fafafa;
+  color: #222;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #185fa5;
+}
+
+.subtitle {
+  margin: 4px 0 20px;
+  color: #666;
+  font-size: 13px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.upload {
+  background: #fff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.upload input[type="file"] {
+  flex: 1;
+  font-size: 13px;
+}
+
+button {
+  padding: 8px 18px;
+  background: #185fa5;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: #134b85;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 13px;
+  color: #666;
+  min-width: 120px;
+}
+
+.chat-box {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-y: auto;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.empty {
+  color: #999;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 14px;
+}
+
+.message {
+  margin: 6px 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 80%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.message.user {
+  background: #185fa5;
+  color: #fff;
+  margin-left: auto;
+}
+
+.message.assistant {
+  background: #f1efe8;
+  color: #222;
+}
+
+.input {
+  display: flex;
+  gap: 8px;
+}
+
+.input input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.15s;
+}
+
+.input input:focus {
+  border-color: #185fa5;
+}
+
+.citations {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.citation {
+  background: #fff;
+  border-left: 3px solid #185fa5;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.citation-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.citation-num {
+  font-weight: 600;
+  color: #185fa5;
+}
+
+.citation-doc {
+  flex: 1;
+  color: #333;
+}
+
+.citation-score {
+  color: #888;
+  font-family: monospace;
+}
+
+.citation-text {
+  color: #444;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
