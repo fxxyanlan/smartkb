@@ -37,22 +37,20 @@ class VectorStore:
         vectors = self._embedder.embed_texts(chunks)
         chunk_ids = [f"{doc_id}_{i}" for i in range(len(chunks))]
         self._collection.add(
-                ids=chunk_ids,
-                embeddings=vectors,
-                documents=chunks,
-                metadatas=[{"doc_id": doc_id, "doc_name": doc_name}] * len(chunks),
-            )
+            ids=chunk_ids,
+            embeddings=vectors,
+            documents=chunks,
+            metadatas=[{"doc_id": doc_id, "doc_name": doc_name}] * len(chunks),
+        )
         return chunk_ids
 
     def search(self, query: str, top_k: int | None = None) -> list[dict]:
         """检索：返回 [{"doc_id", "doc_name", "chunk_text", "score"}, ...]。"""
-
-
         qvec = self._embedder.embed_query(query)
         results = self._collection.query(
-                query_embeddings=[qvec],
-                n_results=top_k or get_settings().top_k,
-            )
+            query_embeddings=[qvec],
+            n_results=top_k or get_settings().top_k,
+        )
         return [
             {
                 "doc_id": m["doc_id"],
@@ -60,10 +58,10 @@ class VectorStore:
                 "chunk_text": doc,
                 "score": 1 - dist,  # distance 转相似度
             }
-                for doc, m, dist in zip(
-                    results["documents"][0],
-                    results["metadatas"][0],
-                    results["distances"][0],
+            for doc, m, dist in zip(
+                results["documents"][0],
+                results["metadatas"][0],
+                results["distances"][0],
             )
         ]
 
@@ -82,7 +80,7 @@ class VectorStore:
         for m in items["metadatas"]:
             seen[m["doc_id"]] = m["doc_name"]
         return [
-            {"doc_id": did,"doc_name": name}
+            {"doc_id": did, "doc_name": name}
             for did, name in seen.items()
         ]
 
