@@ -1,15 +1,23 @@
 """API 数据契约：前后端共享的字段定义。"""
-from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class ChatRequest(BaseModel):
     """问答请求体。"""
 
-    user_id: Optional[str] = None
-    conversation_id: Optional[str] = None
+    user_id: str | None = None
+    conversation_id: str | None = None
     question: str = Field(..., min_length=1, max_length=2000, description="用户问题")
+
+    @field_validator("question")
+    @classmethod
+    def _strip_and_require_text(cls, v: str) -> str:
+        """去掉首尾空白，并拒绝纯空白问题。"""
+        v = v.strip()
+        if not v:
+            raise ValueError("问题不能为空")
+        return v
 
 
 class Citation(BaseModel):
@@ -30,7 +38,10 @@ class ChatResponse(BaseModel):
 
 
 class UploadResponse(BaseModel):
-    """上传响应。"""
+    """上传响应。
+
+    status: ingested=新入库；exists=内容重复，复用已有文档（未重复入库）。
+    """
 
     doc_id: str
     filename: str

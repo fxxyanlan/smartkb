@@ -110,7 +110,7 @@ askdocs/
 - [x] 流式输出（SSE 协议，`text/event-stream`）
 - [x] 多轮对话（conversation_id 会话管理）
 - [x] 引用来源高亮（前端引用卡片 + XSS 转义）
-- [ ] 单元测试补全
+- [x] 单元测试补全（pytest，50 用例，覆盖率 92%）
 - [ ] Docker 部署
 - [ ] 重排序（Rerank）与混合检索
 

@@ -23,6 +23,8 @@ class Settings(BaseSettings):
     deepseek_api_key: str = ""
     deepseek_base_url: str = "https://api.deepseek.com"
     deepseek_model: str = "deepseek-chat"
+    llm_timeout: float = 60.0
+    llm_max_retries: int = 2
 
     # ----- Embedding -----
     embedding_model: str = "./data/models/models/BAAI--bge-small-zh-v1.5/snapshots/master"
@@ -36,11 +38,35 @@ class Settings(BaseSettings):
     app_host: str = "0.0.0.0"
     app_port: int = 8000
     log_level: str = "INFO"
+    # 允许跨域的来源。默认 * 仅用于开发；生产应显式配置具体域名。
+    cors_origins: list[str] = ["*"]
+
+    # ----- 文件上传 -----
+    upload_dir: str = "./data/documents"
+    max_upload_size_mb: int = 20
 
     # ----- RAG -----
     chunk_size: int = 500
     chunk_overlap: int = 50
     top_k: int = 4
+    max_history_turns: int = 6
+
+    @property
+    def llm_configured(self) -> bool:
+        """是否已配置 LLM 密钥。"""
+        return bool(self.deepseek_api_key.strip())
+
+    @property
+    def max_upload_bytes(self) -> int:
+        return self.max_upload_size_mb * 1024 * 1024
+
+    @property
+    def upload_path(self) -> Path:
+        """上传目录（自动转绝对路径）。"""
+        p = Path(self.upload_dir)
+        if not p.is_absolute():
+            p = self.project_root / p
+        return p
 
     @property
     def project_root(self) -> Path:

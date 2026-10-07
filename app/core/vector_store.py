@@ -31,6 +31,7 @@ class VectorStore:
         doc_id: str,
         doc_name: str,
         chunks: list[str],
+        content_hash: str = "",
     ) -> list[str]:
         """把文档的所有 chunks 写入向量库，返回每个 chunk 的 ID。"""
 
@@ -40,9 +41,30 @@ class VectorStore:
             ids=chunk_ids,
             embeddings=vectors,
             documents=chunks,
-            metadatas=[{"doc_id": doc_id, "doc_name": doc_name}] * len(chunks),
+            metadatas=[
+                {"doc_id": doc_id, "doc_name": doc_name, "content_hash": content_hash}
+            ]
+            * len(chunks),
         )
         return chunk_ids
+
+    def find_by_hash(self, content_hash: str) -> dict | None:
+        """按内容指纹查文档，用于重复上传去重。"""
+        if not content_hash:
+            return None
+        found = self._collection.get(
+            where={"content_hash": content_hash},
+            include=["metadatas"],
+            limit=1,
+        )
+        metas = found.get("metadatas") or []
+        if not metas:
+            return None
+        return {"doc_id": metas[0]["doc_id"], "doc_name": metas[0]["doc_name"]}
+
+    def count(self) -> int:
+        """向量库中 chunk 总数（用于健康检查 / 监控）。"""
+        return self._collection.count()
 
     def search(self, query: str, top_k: int | None = None) -> list[dict]:
         """检索：返回 [{"doc_id", "doc_name", "chunk_text", "score"}, ...]。"""
@@ -62,6 +84,7 @@ class VectorStore:
                 results["documents"][0],
                 results["metadatas"][0],
                 results["distances"][0],
+                strict=True,
             )
         ]
 
@@ -74,15 +97,15 @@ class VectorStore:
         return n
 
     def list_docs(self) -> list[dict]:
-        """列出库里所有文档（按 doc_id 去重）。"""
+        """列出库里所有文档（按 doc_id 去重，并统计各自的 chunk 数）。"""
         items = self._collection.get(include=["metadatas"])
-        seen: dict[str, str] = {}
+        seen: dict[str, dict] = {}
         for m in items["metadatas"]:
-            seen[m["doc_id"]] = m["doc_name"]
-        return [
-            {"doc_id": did, "doc_name": name}
-            for did, name in seen.items()
-        ]
+            entry = seen.setdefault(
+                m["doc_id"], {"doc_id": m["doc_id"], "doc_name": m["doc_name"], "chunks": 0}
+            )
+            entry["chunks"] += 1
+        return list(seen.values())
 
 _store: VectorStore | None = None
 

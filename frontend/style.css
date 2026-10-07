@@ -80,6 +80,10 @@ button:disabled {
   min-width: 120px;
 }
 
+.status.error {
+  color: #c0392b;
+}
+
 .chat-box {
   flex: 1;
   background: #fff;
@@ -117,6 +121,22 @@ button:disabled {
 .message.assistant {
   background: #f1efe8;
   color: #222;
+}
+
+/* 流式输出中的打字光标 */
+.message.streaming::after {
+  content: "▍";
+  color: #185fa5;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.message.error {
+  background: #fdecea;
+  color: #a12622;
 }
 
 .input {
@@ -181,4 +201,24 @@ button:disabled {
   color: #444;
   white-space: pre-wrap;
   line-height: 1.4;
+}
+
+/* 移动端适配：小屏下收窄边距、上传栏换行 */
+@media (max-width: 600px) {
+  .app {
+    padding: 12px;
+    height: 100dvh;
+  }
+
+  .upload {
+    flex-wrap: wrap;
+  }
+
+  .upload input[type="file"] {
+    flex-basis: 100%;
+  }
+
+  .message {
+    max-width: 92%;
+  }
 }
