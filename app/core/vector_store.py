@@ -25,6 +25,13 @@ class VectorStore:
             name="documents",
             metadata={"hnsw:space": "cosine"},
         )
+        # 版本号：每次 add / delete 自增，供混合检索判断 BM25 索引是否需要重建
+        self._revision = 0
+
+    @property
+    def revision(self) -> int:
+        """数据版本号（内容变更即自增）。"""
+        return self._revision
 
     def add(
         self,
@@ -46,6 +53,7 @@ class VectorStore:
             ]
             * len(chunks),
         )
+        self._revision += 1
         return chunk_ids
 
     def find_by_hash(self, content_hash: str) -> dict | None:
@@ -67,7 +75,7 @@ class VectorStore:
         return self._collection.count()
 
     def search(self, query: str, top_k: int | None = None) -> list[dict]:
-        """检索：返回 [{"doc_id", "doc_name", "chunk_text", "score"}, ...]。"""
+        """检索：返回 [{"chunk_id", "doc_id", "doc_name", "chunk_text", "score"}, ...]。"""
         qvec = self._embedder.embed_query(query)
         results = self._collection.query(
             query_embeddings=[qvec],
@@ -75,16 +83,33 @@ class VectorStore:
         )
         return [
             {
+                "chunk_id": cid,
                 "doc_id": m["doc_id"],
                 "doc_name": m["doc_name"],
                 "chunk_text": doc,
                 "score": 1 - dist,  # distance 转相似度
             }
-            for doc, m, dist in zip(
+            for cid, doc, m, dist in zip(
+                results["ids"][0],
                 results["documents"][0],
                 results["metadatas"][0],
                 results["distances"][0],
                 strict=True,
+            )
+        ]
+
+    def get_all_chunks(self) -> list[dict]:
+        """取出全部片段（供 BM25 建索引）。"""
+        items = self._collection.get(include=["documents", "metadatas"])
+        return [
+            {
+                "chunk_id": cid,
+                "doc_id": m["doc_id"],
+                "doc_name": m["doc_name"],
+                "chunk_text": doc,
+            }
+            for cid, doc, m in zip(
+                items["ids"], items["documents"], items["metadatas"], strict=True
             )
         ]
 
@@ -94,6 +119,7 @@ class VectorStore:
         n = len(existing["ids"])
         if n:
             self._collection.delete(where={"doc_id": doc_id})
+            self._revision += 1
         return n
 
     def list_docs(self) -> list[dict]:

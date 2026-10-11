@@ -68,9 +68,9 @@ question → rag.answer() → vector_store.search() → llm.chat() → response
 
 - **MVP**：单文档、单会话、能跑通
 - **v1**：多文档、会话持久化（SQLite）、引用高亮、来源跳转
-- **v2**：Agent 工具调用（查实时信息、调外部 API）、混合检索（BM25 + 向量）、重排序（Rerank）
+- **v2**：Agent 工具调用（查实时信息、调外部 API）、混合检索（BM25 + 向量）✅、重排序（Rerank）✅
 - **v3**：多模态（图片问答、表格解析）、用户/权限系统、监控告警
-- **v4**：Docker Compose 一键部署、Kubernetes 编排
+- **v4**：Docker Compose 一键部署 ✅（Dockerfile + compose，Kubernetes 编排待做）
 
 ## 为什么这样分
 

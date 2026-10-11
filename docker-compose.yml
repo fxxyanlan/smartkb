@@ -1,0 +1,33 @@
+# SmartKB 一键部署：docker compose up -d --build
+#
+# 说明：
+#   - 模型在镜像构建期下载，容器启动后即可离线运行；
+#   - 密钥等变量从同目录的 .env 读取（compose 会自动加载 .env 做变量替换）；
+#   - 向量库与上传文件放在命名卷里，容器重建不丢数据。
+services:
+  smartkb:
+    build:
+      context: .
+      args:
+        # 国内网络建议改成 https://hf-mirror.com 加速模型下载
+        HF_ENDPOINT: ${HF_ENDPOINT:-https://huggingface.co}
+        # 关闭可让镜像小约 1GB（此时 Rerank 自动降级为不重排）
+        INSTALL_RERANK_MODEL: ${INSTALL_RERANK_MODEL:-true}
+    image: smartkb:latest
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-chat}
+      TOP_K: ${TOP_K:-4}
+      RERANK_ENABLED: ${RERANK_ENABLED:-true}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - smartkb_vectors:/data/vector_store
+      - smartkb_documents:/data/documents
+    restart: unless-stopped
+
+volumes:
+  smartkb_vectors:
+  smartkb_documents:

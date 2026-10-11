@@ -90,7 +90,7 @@ async function sendQuestion() {
         } else if (event.type === "done") {
           doneReceived = true;
           if (event.citations && event.citations.length) {
-            renderCitations(placeholder, event.citations);
+            renderCitations(placeholder, event.citations, q);
           }
           if (event.conversation_id) {
             conversationId = event.conversation_id; // 多轮 ID 持久化
@@ -123,25 +123,100 @@ async function sendQuestion() {
   }
 }
 
-function renderCitations(parentDiv, citations) {
+const PREVIEW_LEN = 200;
+
+/**
+ * 把问题切成高亮词：中文取相邻双字，英文/数字取整词（长度 >= 2）。
+ * 单字中文会把几乎整段都点亮，所以刻意不用。
+ */
+function extractTerms(question) {
+  const terms = new Set();
+  const normalized = (question || "").toLowerCase();
+
+  // 英文/数字整词
+  (normalized.match(/[a-z0-9_]+/g) || []).forEach((w) => {
+    if (w.length >= 2) terms.add(w);
+  });
+
+  // 中文/日文等连续片段取相邻双字
+  (normalized.match(/[\u4e00-\u9fff]+/g) || []).forEach((seg) => {
+    for (let i = 0; i < seg.length - 1; i++) terms.add(seg.slice(i, i + 2));
+  });
+
+  return [...terms];
+}
+
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * 在原始文本上匹配、对每个片段分别转义，避免 `&` 实体被误当成普通文本匹配到。
+ * 长词优先，防止短词把长词切断。
+ */
+function highlight(text, terms) {
+  const source = String(text);
+  if (!terms.length) return escapeHtml(source);
+
+  const pattern = [...terms]
+    .sort((a, b) => b.length - a.length)
+    .map(escapeRegExp)
+    .join("|");
+  if (!pattern) return escapeHtml(source);
+
+  const parts = source.split(new RegExp(`(${pattern})`, "gi"));
+  return parts
+    .map((part, i) => (i % 2 === 1 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part)))
+    .join("");
+}
+
+function renderCitations(parentDiv, citations, question) {
   const wrap = document.createElement("div");
   wrap.className = "citations";
+
+  const terms = extractTerms(question);
 
   citations.forEach((c, i) => {
     const card = document.createElement("div");
     card.className = "citation";
+
     const raw = c.chunk_text || "";
-    const preview = raw.length > 200 ? raw.slice(0, 200) + "…" : raw;
+    const preview = raw.length > PREVIEW_LEN ? raw.slice(0, PREVIEW_LEN) + "…" : raw;
+    const expandable = raw.length > PREVIEW_LEN;
     const score =
       typeof c.score === "number" && isFinite(c.score) ? c.score.toFixed(3) : "-";
+
     card.innerHTML = `
-      <div class="citation-header">
+      <div class="citation-header"${expandable ? ' role="button" tabindex="0"' : ""}>
         <span class="citation-num">来源 ${i + 1}</span>
         <span class="citation-doc">${escapeHtml(c.doc_name || "")}</span>
         <span class="citation-score">相似度 ${score}</span>
+        ${expandable ? '<span class="citation-toggle">展开原文</span>' : ""}
       </div>
-      <div class="citation-text">${escapeHtml(preview)}</div>
+      <div class="citation-text">${highlight(preview, terms)}</div>
     `;
+
+    if (expandable) {
+      const toggle = () => {
+        const expanded = card.classList.toggle("expanded");
+        card.querySelector(".citation-text").innerHTML = highlight(
+          expanded ? raw : preview,
+          terms
+        );
+        card.querySelector(".citation-toggle").textContent = expanded
+          ? "收起"
+          : "展开原文";
+      };
+      const header = card.querySelector(".citation-header");
+      header.addEventListener("click", toggle);
+      header.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    }
+
     wrap.appendChild(card);
   });
 

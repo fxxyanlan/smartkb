@@ -1,0 +1,57 @@
+{"id": 1, "type": "answerable", "doc": "smartkb.md", "must_contain": ["deepseek"], "question": "SmartKB 用的是哪个大语言模型？"}
+{"id": 2, "type": "answerable", "doc": "smartkb.md", "must_contain": ["512维"], "question": "嵌入模型输出多少维的向量？"}
+{"id": 3, "type": "answerable", "doc": "smartkb.md", "must_contain": ["余弦相似度"], "question": "向量数据库采用什么相似度度量？"}
+{"id": 4, "type": "answerable", "doc": "smartkb.md", "must_contain": ["top_k"], "question": "系统默认检索多少段相关内容？"}
+{"id": 5, "type": "answerable", "doc": "smartkb.md", "must_contain": ["重叠"], "question": "分块时相邻块之间保留多少字符的重叠？"}
+{"id": 6, "type": "answerable", "doc": "smartkb.md", "must_contain": ["rrf_k"], "question": "混合检索的融合参数 rrf_k 默认取值是多少？"}
+{"id": 7, "type": "answerable", "doc": "smartkb.md", "must_contain": ["20mb"], "question": "单个上传文件的大小上限是多少？"}
+{"id": 8, "type": "answerable", "doc": "smartkb.md", "must_contain": ["200个会话"], "question": "系统最多保留多少个会话？"}
+
+{"id": 9, "type": "answerable", "doc": "hr.md", "must_contain": ["每周标准工时"], "question": "公司每周的标准工时是多少小时？"}
+{"id": 10, "type": "answerable", "doc": "hr.md", "must_contain": ["带薪年假"], "question": "入职满一年可以享有多少天年假？"}
+{"id": 11, "type": "answerable", "doc": "hr.md", "must_contain": ["上限15天"], "question": "年假的天数上限是多少？"}
+{"id": 12, "type": "answerable", "doc": "hr.md", "must_contain": ["试用期为3个月"], "question": "新员工的试用期是多长时间？"}
+{"id": 13, "type": "answerable", "doc": "hr.md", "must_contain": ["80%"], "question": "试用期工资是转正后的百分之多少？"}
+{"id": 14, "type": "answerable", "doc": "hr.md", "must_contain": ["逾期作废"], "question": "调休没有在有效期内用完会怎样？"}
+{"id": 15, "type": "answerable", "doc": "hr.md", "must_contain": ["部门负责人审批"], "question": "事假连续超过 3 天需要谁审批？"}
+
+{"id": 16, "type": "answerable", "doc": "api.md", "must_contain": ["token有效期"], "question": "接口认证用的 token 有效期是多久？"}
+{"id": 17, "type": "answerable", "doc": "api.md", "must_contain": ["每分钟60次"], "question": "接口默认限流是每分钟多少次请求？"}
+{"id": 18, "type": "answerable", "doc": "api.md", "must_contain": ["429"], "question": "请求超出限流会返回哪个 HTTP 状态码？"}
+{"id": 19, "type": "answerable", "doc": "api.md", "must_contain": ["100个"], "question": "批量查询单次最多可以传多少个 ID？"}
+{"id": 20, "type": "answerable", "doc": "api.md", "must_contain": ["内测"], "question": "v2 版本目前处于什么阶段？"}
+{"id": 21, "type": "answerable", "doc": "api.md", "must_contain": ["订单详情"], "question": "哪个端点用于查询订单详情？"}
+{"id": 22, "type": "answerable", "doc": "api.md", "must_contain": ["401"], "question": "未认证时接口返回哪个错误码？"}
+
+{"id": 23, "type": "answerable", "doc": "ops.md", "must_contain": ["凌晨2:00"], "question": "数据库每天几点自动全量备份？"}
+{"id": 24, "type": "answerable", "doc": "ops.md", "must_contain": ["保留30天"], "question": "备份文件会保留多少天？"}
+{"id": 25, "type": "answerable", "doc": "ops.md", "must_contain": ["企业微信"], "question": "监控告警通过什么渠道推送？"}
+{"id": 26, "type": "answerable", "doc": "ops.md", "must_contain": ["p0"], "question": "P0 级故障要求多久内响应？"}
+{"id": 27, "type": "answerable", "doc": "ops.md", "must_contain": ["扩容"], "question": "什么条件下会触发自动扩容？"}
+{"id": 28, "type": "answerable", "doc": "ops.md", "must_contain": ["复盘"], "question": "故障复盘需要在几个工作日内完成？"}
+
+{"id": 29, "type": "answerable", "doc": "security.md", "must_contain": ["12位"], "question": "账号密码的长度要求是多少位？"}
+{"id": 30, "type": "answerable", "doc": "security.md", "must_contain": ["90天"], "question": "密码多久需要强制更换一次？"}
+{"id": 31, "type": "answerable", "doc": "security.md", "must_contain": ["四级"], "question": "公司数据分为几个等级？"}
+{"id": 32, "type": "answerable", "doc": "security.md", "must_contain": ["离职当天"], "question": "员工离职时权限什么时候回收？"}
+{"id": 33, "type": "answerable", "doc": "security.md", "must_contain": ["24小时"], "question": "高危漏洞要求多久内修复？"}
+{"id": 34, "type": "answerable", "doc": "security.md", "must_contain": ["安全调查"], "question": "发现越权访问会启动什么流程？"}
+
+{"id": 35, "type": "answerable", "doc": "travel.md", "must_contain": ["总监"], "question": "跨省出差需要谁审批？"}
+{"id": 36, "type": "answerable", "doc": "travel.md", "must_contain": ["提前7天"], "question": "飞机经济舱需要提前多久预订？"}
+{"id": 37, "type": "answerable", "doc": "travel.md", "must_contain": ["500元"], "question": "一线城市的住宿标准是每晚多少元？"}
+{"id": 38, "type": "answerable", "doc": "travel.md", "must_contain": ["150元"], "question": "出差补贴是每天多少元？"}
+{"id": 39, "type": "answerable", "doc": "travel.md", "must_contain": ["15个工作日"], "question": "差旅费报销需要在多久内提交？"}
+{"id": 40, "type": "answerable", "doc": "travel.md", "must_contain": ["自理"], "question": "住宿超过标准的部分怎么处理？"}
+
+{"id": 41, "type": "oos", "doc": null, "must_contain": [], "question": "今天北京的天气怎么样？"}
+{"id": 42, "type": "oos", "doc": null, "must_contain": [], "question": "请用 Python 写一个快速排序函数。"}
+{"id": 43, "type": "oos", "doc": null, "must_contain": [], "question": "请介绍一下量子计算的基本原理。"}
+{"id": 44, "type": "oos", "doc": null, "must_contain": [], "question": "2024 年诺贝尔物理学奖颁给了谁？"}
+{"id": 45, "type": "oos", "doc": null, "must_contain": [], "question": "苹果公司最新的股价是多少？"}
+{"id": 46, "type": "oos", "doc": null, "must_contain": [], "question": "红烧肉怎么做才好吃？"}
+
+{"id": 47, "type": "vague", "doc": null, "must_contain": [], "question": "它有什么特点？"}
+{"id": 48, "type": "vague", "doc": null, "must_contain": [], "question": "这个具体怎么操作？"}
+{"id": 49, "type": "vague", "doc": null, "must_contain": [], "question": "还有别的注意事项吗？"}
+{"id": 50, "type": "vague", "doc": null, "must_contain": [], "question": "能再详细说说吗？"}

@@ -1,0 +1,52 @@
+{
+  "corpus_docs": 12,
+  "corpus_chunks": 12,
+  "dataset_total": 50,
+  "answerable": 40,
+  "top_k": 4,
+  "vector_only": {
+    "answerable_total": 40,
+    "recall@1": 0.75,
+    "recall@4": 0.925,
+    "hits@1": 30,
+    "hits@4": 37,
+    "misses": [
+      {
+        "id": 7,
+        "question": "单个上传文件的大小上限是多少？"
+      },
+      {
+        "id": 8,
+        "question": "系统最多保留多少个会话？"
+      },
+      {
+        "id": 20,
+        "question": "v2 版本目前处于什么阶段？"
+      }
+    ],
+    "latency_ms_median": 13.2,
+    "oos_top1_sim_avg": 0.368
+  },
+  "hybrid": {
+    "answerable_total": 40,
+    "recall@1": 0.875,
+    "recall@4": 1.0,
+    "hits@1": 35,
+    "hits@4": 40,
+    "misses": [],
+    "latency_ms_median": 12.8,
+    "oos_top1_sim_avg": 0.35
+  },
+  "rerank": {
+    "status": "skipped",
+    "model": "BAAI/bge-reranker-base",
+    "hint": "加 --rerank 或设 RERANK_ENABLED=true 后重跑"
+  },
+  "cache": {
+    "repeats": 50,
+    "hit_rate": 0.5,
+    "cold_median_ms": 13.13,
+    "warm_median_ms": 0.002,
+    "speedup": 7291.8
+  }
+}

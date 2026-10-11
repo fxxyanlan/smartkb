@@ -1,13 +1,14 @@
 """/health 健康检查端点。
 
 /health      存活探针：进程活着就返回 200（负载均衡用）。
-/health/ready 就绪探针：额外检查向量库与 LLM 配置。
+/health/ready 就绪探针：额外检查向量库与 LLM 配置，并暴露检索缓存命中率。
 """
 import asyncio
 
 from fastapi import APIRouter
 
 from app.config import get_settings
+from app.core.cache import get_retrieval_cache
 from app.core.vector_store import get_vector_store
 
 router = APIRouter()
@@ -33,6 +34,12 @@ async def readiness_check() -> dict:
         }
     except Exception as e:  # noqa: BLE001 - 就绪检查需吞掉异常并以状态呈现
         checks["vector_store"] = {"status": "error", "detail": str(e)}
+
+    # 检索缓存命中率：用于观测重复提问的收益（未启用时返回 disabled）
+    if settings.cache_enabled:
+        checks["retrieval_cache"] = get_retrieval_cache().stats
+    else:
+        checks["retrieval_cache"] = {"status": "disabled"}
 
     ready = checks["vector_store"]["status"] == "ok"
     return {"status": "ok" if ready else "degraded", "checks": checks}

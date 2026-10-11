@@ -182,6 +182,10 @@ button:disabled {
   color: #555;
 }
 
+.citation .citation-header[role="button"] {
+  cursor: pointer;
+}
+
 .citation-num {
   font-weight: 600;
   color: #185fa5;
@@ -197,10 +201,24 @@ button:disabled {
   font-family: monospace;
 }
 
+.citation-toggle {
+  color: #185fa5;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .citation-text {
   color: #444;
   white-space: pre-wrap;
   line-height: 1.4;
+}
+
+/* 命中高亮：把引用原文里与提问重合的词标出来，便于核对出处 */
+.citation-text mark {
+  background: #fff2ba;
+  color: #4a3b00;
+  border-radius: 2px;
+  padding: 0 1px;
 }
 
 /* 移动端适配：小屏下收窄边距、上传栏换行 */

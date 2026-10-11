@@ -1,5 +1,9 @@
 """RAG 流水线与会话逻辑单元测试。"""
 
+import asyncio
+
+import pytest
+
 from app.core.rag import NO_CONTEXT_ANSWER, RAGPipeline
 from app.services.chat_service import ChatService
 from tests.fakes import FakeLLM, FakeStore
@@ -74,6 +78,68 @@ async def test_stream_answer_no_context_short_circuits():
     assert events[0]["text"] == NO_CONTEXT_ANSWER
     assert events[-1] == {"type": "done", "citations": []}
     assert llm.calls == []
+
+
+async def test_stream_retries_when_failure_happens_before_any_output():
+    """首字之前失败：可安全重试，最终正常吐完并给 done。"""
+    store = FakeStore()
+    store.add("d1", "手册.md", ["相关内容片段"])
+    llm = FakeLLM(reply="你好", fail_times=1)
+    rag = RAGPipeline(llm=llm, store=store)
+
+    events = [e async for e in rag.stream_answer("内容")]
+
+    assert len(llm.calls) == 2  # 第一次失败后重试了一次
+    assert "".join(e["text"] for e in events if e["type"] == "delta") == "你好"
+    assert events[-1]["type"] == "done"
+
+
+async def test_stream_does_not_retry_after_partial_output():
+    """已经吐出内容后失败：不重试（否则会出现重复文本），异常上抛。"""
+    store = FakeStore()
+    store.add("d1", "手册.md", ["相关内容片段"])
+    llm = FakeLLM(reply="你好世界", fail_after=2)
+    rag = RAGPipeline(llm=llm, store=store)
+
+    collected = []
+    with pytest.raises(RuntimeError):
+        async for event in rag.stream_answer("内容"):
+            collected.append(event)
+
+    assert len(llm.calls) == 1  # 没有重试
+    assert "".join(e["text"] for e in collected) == "你好"
+
+
+async def test_stream_retries_on_first_token_timeout(monkeypatch, settings):
+    """首字超时：按 llm_max_retries 重试，最终仍失败则抛出。"""
+    monkeypatch.setattr(settings, "llm_first_token_timeout", 0.05)
+    monkeypatch.setattr(settings, "llm_max_retries", 1)
+
+    store = FakeStore()
+    store.add("d1", "手册.md", ["相关内容片段"])
+    llm = FakeLLM(reply="你好", stall_seconds=1.0)
+    rag = RAGPipeline(llm=llm, store=store)
+
+    with pytest.raises(asyncio.TimeoutError):
+        async for _ in rag.stream_answer("内容"):
+            pass
+
+    assert len(llm.calls) == 2  # 首次 + 1 次重试
+
+
+async def test_stream_no_timeout_when_disabled(monkeypatch, settings):
+    """first_token_timeout <= 0 时不施加超时限制。"""
+    monkeypatch.setattr(settings, "llm_first_token_timeout", 0.0)
+
+    store = FakeStore()
+    store.add("d1", "手册.md", ["相关内容片段"])
+    llm = FakeLLM(reply="你好", stall_seconds=0.05)
+    rag = RAGPipeline(llm=llm, store=store)
+
+    events = [e async for e in rag.stream_answer("内容")]
+
+    assert "".join(e["text"] for e in events if e["type"] == "delta") == "你好"
+    assert events[-1]["type"] == "done"
 
 
 async def test_chat_service_accumulates_history_across_turns():

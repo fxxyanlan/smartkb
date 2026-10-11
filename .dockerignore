@@ -1,0 +1,32 @@
+# 构建上下文瘦身：把本地数据、缓存、版本库排除掉
+# 模型由 Dockerfile 构建期下载，因此 data/ 整个目录都不需要进上下文
+data/
+logs/
+
+# Python 缓存与虚拟环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# 测试与工具缓存
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# 版本库与编辑器
+.git/
+.gitignore
+.idea/
+.vscode/
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# 文档与评估产物
+docs/
+eval/report.json

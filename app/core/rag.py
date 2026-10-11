@@ -16,6 +16,7 @@ import time
 from app.config import get_settings
 from app.core.llm import get_llm
 from app.core.prompts import RAG_PROMPT
+from app.core.retriever import build_retriever
 from app.core.vector_store import get_vector_store
 
 logger = logging.getLogger(__name__)
@@ -30,14 +31,14 @@ NO_CONTEXT_ANSWER = (
 class RAGPipeline:
     """RAG 核心管线。"""
 
-    def __init__(self, llm=None, store=None) -> None:
+    def __init__(self, llm=None, store=None, retriever=None) -> None:
         # 允许注入依赖（便于测试）；默认使用全局单例。
         self._llm = llm or get_llm()
-        self._store = store or get_vector_store()
+        self._retriever = retriever or build_retriever(store or get_vector_store())
 
     def _retrieve(self, question: str, k: int) -> list[dict]:
-        """同步检索（在线程池中调用）。"""
-        return self._store.search(question, top_k=k)
+        """同步检索（在线程池中调用）：向量 + BM25 混合召回。"""
+        return self._retriever.search(question, k)
 
     def _build_messages(
         self, question: str, retrieved: list[dict], history: list[dict] | None
@@ -62,7 +63,8 @@ class RAGPipeline:
                 "doc_id": r["doc_id"],
                 "doc_name": r["doc_name"],
                 "chunk_text": r["chunk_text"],
-                "score": r["score"],
+                # 仅命中 BM25 通道的片段没有向量相似度，此时为 None（前端已做类型保护）
+                "score": r.get("score"),
             }
             for r in retrieved
         ]
@@ -95,6 +97,33 @@ class RAGPipeline:
 
         return {"answer": answer, "citations": self._citations(retrieved)}
 
+    async def _stream_llm(self, messages: list[dict], first_token_timeout: float):
+        """流式调用 LLM，并只对「首字」施加超时。
+
+        首字之后不再限时：长回答本身可能持续很久，整体限时会误杀正常长回答。
+        上层（stream_answer）依赖"是否已吐出首字"来决定能否安全重试。
+        """
+        stream = self._llm.stream_chat(messages, temperature=0.3)
+        try:
+            if first_token_timeout > 0:
+                first = await asyncio.wait_for(
+                    stream.__anext__(), timeout=first_token_timeout
+                )
+            else:
+                first = await stream.__anext__()
+            yield first
+            async for delta in stream:
+                yield delta
+        except StopAsyncIteration:
+            return
+        finally:
+            # 超时/异常/提前退出时都要关闭底层流，避免连接泄漏
+            try:
+                await stream.aclose()
+            except RuntimeError:
+                # 取消时序极端情况下生成器可能仍在收尾，此时忽略即可，不掩盖原始异常
+                logger.debug("关闭 LLM 流时生成器状态异常，已忽略")
+
     async def stream_answer(
         self, question: str, history: list[dict] | None = None, top_k: int | None = None
     ):
@@ -103,8 +132,13 @@ class RAGPipeline:
         Yields:
             {"type": "delta", "text": str}: 答案片段
             {"type": "done", "citations": list[dict]}: 流结束标记 + 引用
+
+        健壮性约定：只有在「一个字都还没吐出」时才会重试（此时重试不会造成
+        内容重复）；一旦已经吐出部分内容就立即抛出，由 API 层转成 error 事件，
+        避免用户看到重复/错乱的半截回答。
         """
-        k = top_k or get_settings().top_k
+        s = get_settings()
+        k = top_k or s.top_k
         retrieved = await asyncio.to_thread(self._retrieve, question, k)
         logger.info("检索完成 | k=%d 命中=%d", k, len(retrieved))
 
@@ -114,8 +148,20 @@ class RAGPipeline:
             return
 
         messages = self._build_messages(question, retrieved, history)
-        async for delta in self._llm.stream_chat(messages, temperature=0.3):
-            yield {"type": "delta", "text": delta}
+
+        attempts = max(1, s.llm_max_retries + 1)
+        emitted = False
+        for attempt in range(1, attempts + 1):
+            try:
+                async for delta in self._stream_llm(messages, s.llm_first_token_timeout):
+                    emitted = True
+                    yield {"type": "delta", "text": delta}
+                break
+            except Exception:
+                # 已吐出内容：重试会产生重复文本，直接上抛
+                if emitted or attempt >= attempts:
+                    raise
+                logger.warning("流式生成失败，重试 | attempt=%d/%d", attempt, attempts)
 
         # 流结束事件，附带引用（前端用这个画"来源 1、来源 2..."卡片）
         yield {"type": "done", "citations": self._citations(retrieved)}
