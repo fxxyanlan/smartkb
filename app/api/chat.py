@@ -29,7 +29,7 @@ async def chat(
     service: ChatService = Depends(get_chat_service),
 ) -> ChatResponse:
     """问答接口：接收问题，返回基于知识库的答案。"""
-    result = await service.answer(req.question, req.conversation_id)
+    result = await service.answer(req.question, req.conversation_id, req.doc_ids)
     return ChatResponse(**result)
 
 
@@ -45,7 +45,9 @@ async def chat_stream(
 
     async def gen():
         try:
-            async for event in service.stream_answer(req.question, req.conversation_id):
+            async for event in service.stream_answer(
+                req.question, req.conversation_id, req.doc_ids
+            ):
                 yield _sse(event)
         except Exception:  # noqa: BLE001 - 流已开始，只能以事件形式回传错误
             logger.exception("流式问答失败")

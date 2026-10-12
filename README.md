@@ -36,6 +36,7 @@
 | 流式输出 | 基于 SSE（`text/event-stream`），前端打字机逐字呈现 |
 | 流式健壮性 | 首字超时自动重试、未输出前失败可安全重试，错误以事件收敛回传 |
 | 多轮对话 | `conversation_id` 维护上下文，支持追问 |
+| 智能体问答 | LangGraph 修正型 RAG：评估召回是否充分，不充分则自动改写问题重检，再生成；`/agent/chat` 与 `/chat` 并存 |
 | 内容去重 | SHA-256 内容指纹，重复上传自动识别，不重复入库 |
 | 空库兜底 | 知识库无相关内容时不调用模型，直接返回提示话术 |
 | 健壮性 | 统一异常层（4xx/5xx 语义正确）、请求校验、上传大小限制 |
@@ -57,6 +58,7 @@
 | 向量库 | Chroma（持久化，余弦相似度） |
 | 检索策略 | 向量检索 + BM25 关键词检索，RRF 倒数排名融合（`app/core/bm25.py`、`retriever.py`） |
 | 重排序 | 交叉编码器精排（sentence-transformers `CrossEncoder`，bge-reranker-base，可关可降级） |
+| 智能体编排 | LangGraph（`StateGraph` 修正型 RAG 循环：检索 → 评估 → 改写 → 重检 → 生成） |
 | 流式协议 | SSE（Server-Sent Events） |
 | 前端 | 原生 HTML / CSS / JavaScript（单页，零构建） |
 | 文档解析 | PyMuPDF / python-docx / langchain-text-splitters |
@@ -68,14 +70,15 @@
 ```
 api/        HTTP 路由 + 数据契约（Pydantic 模型）
   │
-services/   业务编排（ingestion 入库 / chat 问答）
+services/   业务编排（ingestion 入库 / chat 问答 / conversation 会话存储）
+agent/      智能体编排（LangGraph 修正型 RAG 图 + AgentService）
   │
-core/       领域逻辑（LLM / Embedding / RAG / 向量库 / 异常）
+core/       领域逻辑（LLM / Embedding / RAG / 向量库 / 检索 / 异常）
   │
 utils/      通用工具（日志 / 文档解析器）
 ```
 
-依赖方向单向向下：`api → services → core → utils`，上层依赖下层，绝不反向。层与层之间通过构造函数/依赖注入衔接，便于替换与测试。
+依赖方向单向向下：`api → services / agent → core → utils`，上层依赖下层，绝不反向。`agent` 与 `services` 平级，复用 `core` 的检索与 LLM 能力，并共用 `services/conversation.py` 的会话历史。层与层之间通过构造函数/依赖注入衔接，便于替换与测试。
 
 ### 两条核心数据流
 
@@ -114,6 +117,44 @@ utils/      通用工具（日志 / 文档解析器）
 - **引用高亮**：前端在**原始文本**上按问题词切分匹配、对每段分别转义，既高亮命中词又不引入 XSS。
 - **内存保护**：会话历史用 `OrderedDict` + LRU 上限（200 个会话），历史轮数上限 6；检索缓存同样有容量上限（256 条）。
 
+### LangGraph 智能体链路（修正型 RAG）
+
+`/chat` 是一条**线性**链路：检索一次 → 生成。但检索质量并非总是可靠——用户问题含糊、指代不清时首轮召回可能是错的。`AgentService`（`app/agent/`）用 LangGraph 把这条链路升级为**带自检与回环的修正型 RAG（Corrective RAG）**，同时保留 `/chat` 原有行为不变。
+
+**图结构**（`app/agent/graph.py`，用 `get_agent_graph().get_graph().draw_mermaid()` 可复核）：
+
+```
+START → retrieve ─(有候选)→ grade ─(充分 / 已达改写上限)→ generate → END
+           │                    │
+        (无候选)            (不充分且未达上限)
+           ↓                    ↓
+      no_context → END      rewrite → retrieve（回到检索，构成回环）
+```
+
+**节点职责：**
+
+| 节点 | 职责 |
+|---|---|
+| `retrieve` | 调用**最优检索链路**（混合检索 + 交叉编码器 Rerank + 结果缓存），同步检索经 `asyncio.to_thread` 卸载 |
+| `grade` | LLM 评估召回上下文是否足以回答问题，只输出「充分 / 不充分」；关闭开关或调用异常时 **fail-open（判为充分）**，绝不因评估失败拖垮链路 |
+| `rewrite` | 问题不充分时改写查询（补全指代、保留编号/专有名词等关键实体），并受限次约束 |
+| `generate` | 用与 `/chat` 完全一致的 `stream_llm` 逐字生成（首字超时），保证口径一致 |
+| `no_context` | 检索为空时短路，直接返回拒答话术，**不调用 LLM**（沿用防幻觉约定） |
+
+**与 `/chat` 的区别：**
+
+- `/chat` 检索一次即生成；`/agent/chat` 会在生成前先自检，不充分时**最多改写重检 `AGENT_MAX_REWRITES` 次**，响应体多返回一个 `rewrites` 字段（实际改写次数）。
+- 两者共用同一份会话历史存储（`app/services/conversation.py`）与同一套生成逻辑，答案风格、引用格式完全一致。
+
+**开关与降级：**
+
+- `AGENT_GRADE_ENABLED=false`：跳过评估节点，等价于"检索 → 生成"的线性行为（但仍走 Agent 端点）。
+- `AGENT_MAX_REWRITES=0`：禁用回环，评估不充分时也直接生成。
+- 评估节点调用失败或输出无法解析：**fail-open 判为充分**，走正常生成。
+- 检索为空：仍短路拒答，不产生无依据输出。
+
+**流式实现**：`/agent/chat/stream` 用 `astream(stream_mode=["custom","values"])` 同时消费自定义逐字流与完整状态——`generate` 节点的每个 token 通过 `get_stream_writer()` 实时推送（`ainvoke` 场景下该 writer 不存在，已用 try/except 降级为普通生成），`no_context` 等未产生 token 的场景则在流末补发整段文本，保证前端始终能收到内容。
+
 ---
 
 ## 四、快速开始
@@ -121,7 +162,7 @@ utils/      通用工具（日志 / 文档解析器）
 ### 环境要求
 
 - **Docker（推荐）**：只需 Docker + Docker Compose，见下方「Docker 一键部署」。
-- **本地开发**：Python ≥ 3.10、约 500 MB 磁盘空间（含本地 Embedding 模型）。
+- **本地开发**：Python ≥ 3.10、约 500 MB 磁盘空间（含本地 Embedding 模型）；若要开启 Rerank 精排，再预留约 1 GB 存放交叉编码器模型。
 - 一个 DeepSeek API Key（[获取地址](https://platform.deepseek.com/)）。
 
 ### 安装步骤
@@ -145,13 +186,34 @@ cp .env.example .env
 # 编辑 .env，填入 DEEPSEEK_API_KEY
 ```
 
-### 启动与使用
+### 本地开发运行
 
 ```bash
+# 依赖与 .env 准备好后（见上），单进程启动
 uvicorn app.main:app --reload
 ```
 
-启动后访问 **http://localhost:8000**：上传一份文档 → 提问 → 观察答案逐字流出与下方引用卡片。交互式 API 文档见 http://localhost:8000/docs。
+启动后访问 **http://localhost:8000**：上传一份文档 → 提问 → 观察答案逐字流出与下方引用卡片。交互式 API 文档见 http://localhost:8000/docs。`/chat`（线性）与 `/agent/chat`（修正型 RAG）共用同一条「混合检索 + 重排 + 缓存」链路，可分别调用对比。
+
+**开启最优链路（混合 + Rerank）**：混合检索默认已开（`HYBRID_ENABLED=true`），Rerank 默认关闭（模型约 1 GB，为「clone 即跑」保持轻量）。落地重排模型的两种方式：
+
+```bash
+# 方式一：本地离线落地（推荐，之后启动不再联网）
+python -c "from huggingface_hub import snapshot_download; \
+  snapshot_download('BAAI/bge-reranker-base', local_dir='./data/models/rerank')"
+# 然后 .env 设置：
+#   RERANK_ENABLED=true
+#   RERANK_MODEL=./data/models/rerank
+
+# 方式二：直接给 HuggingFace 模型名，首次使用时自动下载（需联网）
+# Windows PowerShell 先设镜像加速：$env:HF_ENDPOINT="https://hf-mirror.com"
+#   RERANK_ENABLED=true
+#   RERANK_MODEL=BAAI/bge-reranker-base
+```
+
+验证是否生效：启动日志出现 `重排序模型已加载 | model=...` 即为成功；若出现 `重排序模型加载失败，已降级为不重排`，说明模型不可用——**服务仍照常运行**，自动退化为纯混合检索，不影响可用性。
+
+**Agent 参数**：`.env` 中 `AGENT_GRADE_ENABLED`（是否启用 LLM 评估节点，默认 true）、`AGENT_MAX_REWRITES`（最大改写重检次数，默认 1，设 0 即禁用回环）。评估/改写会额外产生少量 LLM 调用（评估 1 次、每次改写再 1 次），可按成本与效果取舍。
 
 ### Docker 一键部署（推荐）
 
@@ -172,7 +234,8 @@ docker compose down         # 停止（数据保存在命名卷中，不会丢�
 说明：
 
 - **国内网络**建议先 `export HF_ENDPOINT=https://hf-mirror.com` 再构建，加速模型下载。
-- 只想跑通、不需要重排：`INSTALL_RERANK_MODEL=false docker compose up -d --build`（镜像小约 1GB，重排会自动降级）。
+- 只想跑通、不需要重排：`INSTALL_RERANK_MODEL=false docker compose up -d --build`（镜像小约 1GB，重排会自动降级）。镜像默认 `RERANK_ENABLED=true`——构建时不装重排模型、运行时又强制开启会走降级分支，两者请保持一致。
+- **Agent 配置**：compose 已透传 `AGENT_MAX_REWRITES`（默认 1）与 `AGENT_GRADE_ENABLED`（默认 true），在 `.env` 中改这两个值即可调整智能体链路的改写次数与评估开关，重建容器后生效。
 - **数据持久化**：向量库与上传文件放在 `smartkb_vectors` / `smartkb_documents` 两个命名卷中，容器重建不影响数据。
 - 容器内置 `HEALTHCHECK`，`docker ps` 可直接看到 healthy/unhealthy。
 
@@ -185,6 +248,8 @@ docker compose down         # 停止（数据保存在命名卷中，不会丢�
 | DELETE | `/api/v1/documents/{doc_id}` | 删除文档及其向量 |
 | POST | `/api/v1/chat` | 一次性问答 |
 | POST | `/api/v1/chat/stream` | 流式问答（SSE） |
+| POST | `/api/v1/agent/chat` | 智能体问答（修正型 RAG：评估 → 改写 → 重检 → 生成，响应含 `rewrites`） |
+| POST | `/api/v1/agent/chat/stream` | 智能体流式问答（SSE） |
 | GET | `/api/v1/health` | 存活探针 |
 | GET | `/api/v1/health/ready` | 就绪探针（向量库 + LLM 配置 + 缓存命中率） |
 
@@ -196,12 +261,17 @@ curl -X POST http://localhost:8000/api/v1/documents/upload -F "file=@doc.pdf"
 curl -X POST http://localhost:8000/api/v1/chat \
   -H "Content-Type: application/json" \
   -d '{"question": "这份文档讲了什么？"}'
+
+# 智能体提问（修正型 RAG，返回体多一个 rewrites 字段）
+curl -X POST http://localhost:8000/api/v1/agent/chat \
+  -H "Content-Type: application/json" \
+  -d '{"question": "它支持哪些格式？"}'
 ```
 
 ### 质量验证
 
 ```bash
-pytest                       # 运行测试（85 用例）
+pytest                       # 运行测试（99 用例）
 ruff check .                 # 代码规范检查
 python scripts/evaluate.py   # 检索效果评估（纯向量 vs 混合检索 + 缓存收益）
 python scripts/evaluate.py --rerank   # 额外测"混合检索 + 交叉编码器精排"（需本地有重排模型）
@@ -240,12 +310,17 @@ CI（`.github/workflows/ci.yml`）在每次推送时跑这些检查：ruff + pyt
 | `app/main.py` | 应用工厂、路由注册、前端挂载、全局异常映射 |
 | `app/config.py` | `.env` 配置读取，全局 Settings 单例 |
 | `app/api/chat.py` | `/chat`、`/chat/stream` 端点（含 SSE 封装） |
+| `app/api/agent.py` | `/agent/chat`、`/agent/chat/stream` 端点（智能体服务单例，供依赖覆盖） |
 | `app/api/documents.py` | 文档上传 / 列表 / 删除端点 |
 | `app/api/health.py` | 存活与就绪探针 |
 | `app/api/schemas.py` | 请求/响应模型，含输入校验（空问题拦截） |
 | `app/services/ingestion.py` | 入库编排：校验 → 去重 → 解析 → 分块 → 向量化 |
 | `app/services/chat_service.py` | 问答编排：会话历史管理、调用 RAG |
-| `app/core/rag.py` | RAG 流水线：检索 → 拼装 → 生成 / 流式生成（首字超时 + 未输出前重试） |
+| `app/services/conversation.py` | 会话历史存储：LRU 上限 + 轮数裁剪，供 `/chat` 与 `/agent` 共用 |
+| `app/agent/graph.py` | LangGraph 修正型 RAG 图：retrieve / grade / rewrite / generate / no_context 节点与条件边 |
+| `app/agent/service.py` | AgentService：组装初始状态、`ainvoke` / `astream` 执行、`rewrites` 计数 |
+| `app/agent/state.py` | 图状态（`AgentState`）字段定义 |
+| `app/core/rag.py` | RAG 流水线：检索 → 拼装 → 生成 / 流式生成（首字超时 + 未输出前重试）；模块级 helper 供 Agent 复用 |
 | `app/core/retriever.py` | 混合检索：向量 + BM25 双通道，RRF 融合，索引按版本号惰性重建；`RerankedRetriever` 精排、`CachedRetriever` 缓存两层装饰器 |
 | `app/core/reranker.py` | 重排序：`Reranker` 接口 + `CrossEncoderReranker`（懒加载、失败降级）+ `NoopReranker` 兜底 |
 | `app/core/cache.py` | 检索结果缓存：线程安全 LRU + TTL，按向量库版本号失效，暴露命中率统计 |
@@ -253,12 +328,12 @@ CI（`.github/workflows/ci.yml`）在每次推送时跑这些检查：ruff + pyt
 | `app/core/llm.py` | LLM 客户端：普通 + 流式，上游错误归一化 |
 | `app/core/embeddings.py` | Embedding 模型加载与批量向量化 |
 | `app/core/vector_store.py` | 向量库读写：add / search / delete / 去重查询 |
-| `app/core/prompts.py` | Prompt 模板集中管理 |
+| `app/core/prompts.py` | Prompt 模板集中管理（含 RAG / 评估 / 改写三类） |
 | `app/core/errors.py` | 领域异常定义，映射 HTTP 状态码 |
 | `app/utils/loaders.py` | 多格式文档解析器（按扩展名路由） |
 | `app/utils/logging.py` | 统一日志格式 |
 | `frontend/` | 单页前端：上传、聊天、引用展开与命中词高亮、XSS 转义 |
-| `tests/` | pytest 用例（含内存向量库 / 桩模型，85 用例） |
+| `tests/` | pytest 用例（含内存向量库 / 桩模型 / 脚本化 Agent 替身，99 用例） |
 | `scripts/evaluate.py` | 离线检索评估：纯向量 vs 混合检索对比、缓存收益量化、可选精排对照、`--check-baseline` 门禁 |
 | `Dockerfile` / `docker-compose.yml` | 一键部署：多阶段构建、模型内置、命名卷持久化、健康检查 |
 | `.github/workflows/ci.yml` | CI 门禁：ruff + pytest 覆盖率 + 评估基线校验 + 镜像构建冒烟 |
@@ -317,7 +392,7 @@ CI（`.github/workflows/ci.yml`）在每次推送时跑这些检查：ruff + pyt
 - [x] SSE 流式输出
 - [x] 多轮对话与会话管理
 - [x] 内容去重 / 统一异常层 / 健康探针
-- [x] 测试补全（pytest，85 用例，覆盖率 93%）
+- [x] 测试补全（pytest，99 用例，覆盖率 93%）
 - [x] 混合检索（向量 + BM25，RRF 融合）与 50 题检索评估集
 - [x] 检索结果缓存（LRU + TTL + 版本号失效，重复提问延迟 <1ms）
 - [x] 流式健壮性（首字超时 + 未输出前重试 + 错误收敛）
@@ -325,7 +400,7 @@ CI（`.github/workflows/ci.yml`）在每次推送时跑这些检查：ruff + pyt
 - [x] CI 门禁（ruff + pytest 覆盖率 + 评估基线校验）
 - [x] Docker 一键部署（多阶段构建 + 模型内置 + 命名卷持久化）
 - [x] 重排序（Rerank，交叉编码器，可关可降级）
-- [ ] Agent 工具调用
+- [x] LangGraph 智能体编排（修正型 RAG：评估 → 改写 → 重检 → 生成，`/agent/chat`）
 - [ ] 多租户与权限
 
 ---

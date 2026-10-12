@@ -17,7 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.api import chat, documents, health
+from app.api import agent, chat, documents, health
 from app.config import get_settings
 from app.core.errors import AppError
 from app.utils.logging import setup_logging
@@ -75,6 +75,7 @@ def create_app() -> FastAPI:
     # 路由
     app.include_router(health.router, prefix="/api/v1", tags=["health"])
     app.include_router(chat.router, prefix="/api/v1", tags=["chat"])
+    app.include_router(agent.router, prefix="/api/v1", tags=["agent"])
     app.include_router(documents.router, prefix="/api/v1", tags=["documents"])
 
     # 前端静态文件（开发期直接挂载；生产建议用 nginx）

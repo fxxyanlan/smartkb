@@ -18,6 +18,7 @@ dependencies = [
     "python-multipart>=0.0.9",
     "python-dotenv>=1.0.0",
     "langchain-text-splitters>=0.2.0",
+    "langgraph>=1.0.0",
 ]
 
 [project.optional-dependencies]
