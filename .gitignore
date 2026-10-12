@@ -37,3 +37,8 @@ logs/*
 .ruff_cache/
 htmlcov/
 .coverage
+
+model/
+*.bin
+*.safetensors
+*.onnx
