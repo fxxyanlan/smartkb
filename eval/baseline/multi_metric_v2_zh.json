@@ -1,0 +1,4281 @@
+{
+  "tag": "v2_zh",
+  "corpus_dir": "corpus_v2",
+  "dataset": "dataset_v2.jsonl",
+  "doc_count": 8,
+  "doc_names": [
+    "data_governance.md",
+    "nebula_api.md",
+    "nebula_api_deprecated.md",
+    "oncall.md",
+    "oncall_sla.md",
+    "partner_program.md",
+    "quota_billing.md",
+    "refund_policy.md"
+  ],
+  "query_count": 34,
+  "config": {
+    "embed_model": "./data/models/models/BAAI--bge-small-zh-v1.5/snapshots/master",
+    "alpha": 0.5,
+    "top_k_retrieve": 10,
+    "ks": [
+      1,
+      3,
+      5
+    ],
+    "mrr_k": 10,
+    "warmup_rounds": 1,
+    "measure_rounds": 2,
+    "rerank_model": "bge-reranker-base"
+  },
+  "results": [
+    {
+      "method": "BM25",
+      "metrics": {
+        "recall@1": 0.9629629629629629,
+        "precision@1": 0.9629629629629629,
+        "recall@3": 1.0,
+        "precision@3": 0.35802469135802467,
+        "recall@5": 1.0,
+        "precision@5": 0.21481481481481485,
+        "mrr@10": 0.9814814814814815,
+        "mrr": 0.9814814814814815,
+        "latency_median_ms": 0.17,
+        "latency_p95_ms": 0.24,
+        "latency_mean_ms": 0.17,
+        "index_bytes": 47919888,
+        "model_bytes": 0,
+        "total_bytes": 47919888
+      },
+      "by_dimension": {
+        "difficulty": {
+          "中等": {
+            "count": 15,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "困难": {
+            "count": 5,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.4666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.28,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "简单": {
+            "count": 7,
+            "recall@1": 0.8571428571428571,
+            "precision@1": 0.8571428571428571,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9285714285714286,
+            "mrr": 0.9285714285714286
+          }
+        },
+        "semantic": {
+          "同义改写": {
+            "count": 7,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "否定排除": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "字面匹配": {
+            "count": 15,
+            "recall@1": 0.9333333333333333,
+            "precision@1": 0.9333333333333333,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9666666666666667,
+            "mrr": 0.9666666666666667
+          },
+          "指代消解": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "跨文档多跳": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "事实抽取": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "定义": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "对比": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "数值": {
+            "count": 14,
+            "recall@1": 0.9285714285714286,
+            "precision@1": 0.9285714285714286,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9642857142857143,
+            "mrr": 0.9642857142857143
+          },
+          "标识": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "标识/错误码": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "流程": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 101,
+          "question": "Nebula 开放平台对外接口的基础域名是什么？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            7,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md",
+            "data_governance.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 102,
+          "question": "Nebula 的 Token 默认有效期为多长时间？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            0,
+            5,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "partner_program.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 103,
+          "question": "平台对每个应用每秒窗口内的调用次数上限是多少？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            6,
+            7,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "refund_policy.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 104,
+          "question": "在已经下线的历史版本里，签名鉴权凭据的有效期是多久？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            7,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "refund_policy.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 105,
+          "question": "Nebula v1 接口超出调用频次限制时返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            3,
+            6,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall.md",
+            "quota_billing.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 106,
+          "question": "如果同一笔写请求被重复提交，服务端会如何处理？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            7,
+            6,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "refund_policy.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 107,
+          "question": "当前版本批量查询接口单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            7,
+            3,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "refund_policy.md",
+            "oncall.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 108,
+          "question": "新注册企业每月获赠多少次调用额度？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            5,
+            1,
+            2,
+            4
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "partner_program.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 109,
+          "question": "调用量超出免费额度之后，每一次调用要收多少钱？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            2,
+            1,
+            5,
+            4
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "partner_program.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 110,
+          "question": "单账户单月的费用上限是多少？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            2,
+            4,
+            1,
+            7
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 111,
+          "question": "账户欠费连续多少天后会被暂停全部接口调用权限？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            1,
+            7,
+            2,
+            5
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api.md",
+            "refund_policy.md",
+            "nebula_api_deprecated.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 112,
+          "question": "电子发票一般要多久才能开具完成？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            3,
+            6,
+            0,
+            2
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 113,
+          "question": "预付费套餐的全额退款时限和账单的出账时限分别是多少？",
+          "gold_doc_ids": [
+            7,
+            6
+          ],
+          "gold_doc_names": [
+            "refund_policy.md",
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            6,
+            2,
+            3
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 114,
+          "question": "纸质发票从申请到寄出大约需要多久？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            5,
+            0,
+            1,
+            3
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "partner_program.md",
+            "data_governance.md",
+            "nebula_api.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 115,
+          "question": "值班交接固定在每周星期几的几点完成？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            0,
+            6,
+            7,
+            5
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "data_governance.md",
+            "quota_billing.md",
+            "refund_policy.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 116,
+          "question": "一线值班在多长时间未响应时会被自动升级到二线？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            1,
+            7,
+            4,
+            6
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "nebula_api.md",
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 117,
+          "question": "一线升级到二线的时限，与 P0 事件的响应时限，分别是多少？",
+          "gold_doc_ids": [
+            3,
+            4
+          ],
+          "gold_doc_names": [
+            "oncall.md",
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            3,
+            7,
+            2,
+            0
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "oncall.md",
+            "refund_policy.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 118,
+          "question": "核心接口的月度可用性最低要达到多少？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            7,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "refund_policy.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 119,
+          "question": "月度可用性未达标时按当月费用的多少比例进行补偿？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            5,
+            3,
+            1
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "partner_program.md",
+            "oncall.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 120,
+          "question": "数据按敏感程度一共分为哪几个等级？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            5,
+            4,
+            6,
+            7
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "partner_program.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 121,
+          "question": "操作日志与访问审计日志一般保留多长时间？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            2,
+            7,
+            3,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md",
+            "oncall.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 122,
+          "question": "用户注销后，在线系统的删除和备份中的残留清理分别要多久内完成？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            3,
+            7,
+            5,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall.md",
+            "refund_policy.md",
+            "partner_program.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 123,
+          "question": "从哪一级开始，数据被禁止出境存储和处理？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            3,
+            1,
+            6,
+            4
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall.md",
+            "nebula_api.md",
+            "quota_billing.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 124,
+          "question": "金牌伙伴获得的专属对接码，其格式前缀是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            2,
+            7,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md",
+            "data_governance.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 125,
+          "question": "配备技术顾问的那一档伙伴，额外获得的角色简称是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            2,
+            7,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md",
+            "data_governance.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 126,
+          "question": "合作伙伴按年度业绩一共划分为几个层级？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            6,
+            4,
+            7,
+            1
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "refund_policy.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 127,
+          "question": "金牌伙伴的客户续约率考核门槛是多少？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            2,
+            3,
+            7,
+            0
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api_deprecated.md",
+            "oncall.md",
+            "refund_policy.md",
+            "data_governance.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Pure Embedding",
+      "metrics": {
+        "recall@1": 0.8518518518518519,
+        "precision@1": 0.8518518518518519,
+        "recall@3": 1.0,
+        "precision@3": 0.35802469135802467,
+        "recall@5": 1.0,
+        "precision@5": 0.21481481481481485,
+        "mrr@10": 0.9259259259259259,
+        "mrr": 0.9259259259259259,
+        "latency_median_ms": 9.13,
+        "latency_p95_ms": 9.84,
+        "latency_mean_ms": 9.09,
+        "index_bytes": 16416,
+        "model_bytes": 95815680,
+        "total_bytes": 95832096
+      },
+      "by_dimension": {
+        "difficulty": {
+          "中等": {
+            "count": 15,
+            "recall@1": 0.9333333333333333,
+            "precision@1": 0.9333333333333333,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9666666666666667,
+            "mrr": 0.9666666666666667
+          },
+          "困难": {
+            "count": 5,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.4666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.28,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "简单": {
+            "count": 7,
+            "recall@1": 0.5714285714285714,
+            "precision@1": 0.5714285714285714,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.7857142857142857,
+            "mrr": 0.7857142857142857
+          }
+        },
+        "semantic": {
+          "同义改写": {
+            "count": 7,
+            "recall@1": 0.8571428571428571,
+            "precision@1": 0.8571428571428571,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9285714285714286,
+            "mrr": 0.9285714285714286
+          },
+          "否定排除": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "字面匹配": {
+            "count": 15,
+            "recall@1": 0.8,
+            "precision@1": 0.8,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9,
+            "mrr": 0.9
+          },
+          "指代消解": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "跨文档多跳": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "事实抽取": {
+            "count": 3,
+            "recall@1": 0.6666666666666666,
+            "precision@1": 0.6666666666666666,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 0.8333333333333334,
+            "mrr": 0.8333333333333334
+          },
+          "定义": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "对比": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "数值": {
+            "count": 14,
+            "recall@1": 0.9285714285714286,
+            "precision@1": 0.9285714285714286,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9642857142857143,
+            "mrr": 0.9642857142857143
+          },
+          "标识": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "标识/错误码": {
+            "count": 1,
+            "recall@1": 0.0,
+            "precision@1": 0.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.5,
+            "mrr": 0.5
+          },
+          "流程": {
+            "count": 3,
+            "recall@1": 0.6666666666666666,
+            "precision@1": 0.6666666666666666,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 0.8333333333333334,
+            "mrr": 0.8333333333333334
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 101,
+          "question": "Nebula 开放平台对外接口的基础域名是什么？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            4,
+            5,
+            6
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 102,
+          "question": "Nebula 的 Token 默认有效期为多长时间？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            4,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 103,
+          "question": "平台对每个应用每秒窗口内的调用次数上限是多少？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            4,
+            6,
+            2,
+            0
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 104,
+          "question": "在已经下线的历史版本里，签名鉴权凭据的有效期是多久？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            0,
+            1,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 105,
+          "question": "Nebula v1 接口超出调用频次限制时返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            4,
+            6,
+            3
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 106,
+          "question": "如果同一笔写请求被重复提交，服务端会如何处理？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            4,
+            1,
+            2,
+            6,
+            0
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 107,
+          "question": "当前版本批量查询接口单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            4,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 108,
+          "question": "新注册企业每月获赠多少次调用额度？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            5,
+            4,
+            0,
+            1
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "partner_program.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 109,
+          "question": "调用量超出免费额度之后，每一次调用要收多少钱？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            5,
+            7,
+            1
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "refund_policy.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 110,
+          "question": "单账户单月的费用上限是多少？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            5,
+            7,
+            0
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "refund_policy.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 111,
+          "question": "账户欠费连续多少天后会被暂停全部接口调用权限？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            1,
+            0,
+            2
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "data_governance.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 112,
+          "question": "电子发票一般要多久才能开具完成？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            6,
+            3,
+            5
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 113,
+          "question": "预付费套餐的全额退款时限和账单的出账时限分别是多少？",
+          "gold_doc_ids": [
+            7,
+            6
+          ],
+          "gold_doc_names": [
+            "refund_policy.md",
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            7,
+            6,
+            4,
+            5,
+            0
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 114,
+          "question": "纸质发票从申请到寄出大约需要多久？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            6,
+            0,
+            3
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 115,
+          "question": "值班交接固定在每周星期几的几点完成？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "quota_billing.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 116,
+          "question": "一线值班在多长时间未响应时会被自动升级到二线？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            5,
+            6,
+            2
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 117,
+          "question": "一线升级到二线的时限，与 P0 事件的响应时限，分别是多少？",
+          "gold_doc_ids": [
+            3,
+            4
+          ],
+          "gold_doc_names": [
+            "oncall.md",
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            5,
+            2,
+            1
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 118,
+          "question": "核心接口的月度可用性最低要达到多少？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            1,
+            2,
+            5
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 119,
+          "question": "月度可用性未达标时按当月费用的多少比例进行补偿？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            3,
+            5,
+            1
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md",
+            "partner_program.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 120,
+          "question": "数据按敏感程度一共分为哪几个等级？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            5,
+            1,
+            2
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 121,
+          "question": "操作日志与访问审计日志一般保留多长时间？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            2,
+            6,
+            1
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 122,
+          "question": "用户注销后，在线系统的删除和备份中的残留清理分别要多久内完成？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            6,
+            4,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 123,
+          "question": "从哪一级开始，数据被禁止出境存储和处理？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            2,
+            4,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 124,
+          "question": "金牌伙伴获得的专属对接码，其格式前缀是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            1,
+            2,
+            4,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 125,
+          "question": "配备技术顾问的那一档伙伴，额外获得的角色简称是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            1,
+            2,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 126,
+          "question": "合作伙伴按年度业绩一共划分为几个层级？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            0,
+            6,
+            3
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "quota_billing.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 127,
+          "question": "金牌伙伴的客户续约率考核门槛是多少？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            6,
+            3,
+            1
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md",
+            "nebula_api.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Hybrid(BM25+Embedding)",
+      "metrics": {
+        "recall@1": 0.9629629629629629,
+        "precision@1": 0.9629629629629629,
+        "recall@3": 1.0,
+        "precision@3": 0.35802469135802467,
+        "recall@5": 1.0,
+        "precision@5": 0.21481481481481485,
+        "mrr@10": 0.9814814814814815,
+        "mrr": 0.9814814814814815,
+        "latency_median_ms": 9.81,
+        "latency_p95_ms": 10.62,
+        "latency_mean_ms": 9.83,
+        "index_bytes": 47936304,
+        "model_bytes": 95815680,
+        "total_bytes": 143751984
+      },
+      "by_dimension": {
+        "difficulty": {
+          "中等": {
+            "count": 15,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "困难": {
+            "count": 5,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.4666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.28,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "简单": {
+            "count": 7,
+            "recall@1": 0.8571428571428571,
+            "precision@1": 0.8571428571428571,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9285714285714286,
+            "mrr": 0.9285714285714286
+          }
+        },
+        "semantic": {
+          "同义改写": {
+            "count": 7,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "否定排除": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "字面匹配": {
+            "count": 15,
+            "recall@1": 0.9333333333333333,
+            "precision@1": 0.9333333333333333,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9666666666666667,
+            "mrr": 0.9666666666666667
+          },
+          "指代消解": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "跨文档多跳": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "事实抽取": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "定义": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "对比": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "数值": {
+            "count": 14,
+            "recall@1": 0.9285714285714286,
+            "precision@1": 0.9285714285714286,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9642857142857143,
+            "mrr": 0.9642857142857143
+          },
+          "标识": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "标识/错误码": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "流程": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 101,
+          "question": "Nebula 开放平台对外接口的基础域名是什么？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 102,
+          "question": "Nebula 的 Token 默认有效期为多长时间？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            4,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 103,
+          "question": "平台对每个应用每秒窗口内的调用次数上限是多少？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            6,
+            4,
+            0
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 104,
+          "question": "在已经下线的历史版本里，签名鉴权凭据的有效期是多久？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            0,
+            1,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 105,
+          "question": "Nebula v1 接口超出调用频次限制时返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            6,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 106,
+          "question": "如果同一笔写请求被重复提交，服务端会如何处理？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            4,
+            2,
+            6,
+            0
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 107,
+          "question": "当前版本批量查询接口单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            4,
+            0,
+            6
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "data_governance.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 108,
+          "question": "新注册企业每月获赠多少次调用额度？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            5,
+            4,
+            1,
+            2
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "partner_program.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 109,
+          "question": "调用量超出免费额度之后，每一次调用要收多少钱？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            2,
+            1,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 110,
+          "question": "单账户单月的费用上限是多少？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            7,
+            5,
+            2
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "refund_policy.md",
+            "partner_program.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 111,
+          "question": "账户欠费连续多少天后会被暂停全部接口调用权限？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            1,
+            2,
+            0
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 112,
+          "question": "电子发票一般要多久才能开具完成？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            6,
+            3,
+            0
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 113,
+          "question": "预付费套餐的全额退款时限和账单的出账时限分别是多少？",
+          "gold_doc_ids": [
+            7,
+            6
+          ],
+          "gold_doc_names": [
+            "refund_policy.md",
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            7,
+            6,
+            4,
+            5,
+            0
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 114,
+          "question": "纸质发票从申请到寄出大约需要多久？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            6,
+            0,
+            5
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 115,
+          "question": "值班交接固定在每周星期几的几点完成？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            5,
+            6,
+            0
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "quota_billing.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 116,
+          "question": "一线值班在多长时间未响应时会被自动升级到二线？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            5,
+            1,
+            6
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "nebula_api.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 117,
+          "question": "一线升级到二线的时限，与 P0 事件的响应时限，分别是多少？",
+          "gold_doc_ids": [
+            3,
+            4
+          ],
+          "gold_doc_names": [
+            "oncall.md",
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            3,
+            2,
+            5,
+            0
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "oncall.md",
+            "nebula_api_deprecated.md",
+            "partner_program.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 118,
+          "question": "核心接口的月度可用性最低要达到多少？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            2,
+            1,
+            5
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 119,
+          "question": "月度可用性未达标时按当月费用的多少比例进行补偿？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            5,
+            3,
+            1
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "partner_program.md",
+            "oncall.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 120,
+          "question": "数据按敏感程度一共分为哪几个等级？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            5,
+            1,
+            2
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 121,
+          "question": "操作日志与访问审计日志一般保留多长时间？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            2,
+            6,
+            1
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 122,
+          "question": "用户注销后，在线系统的删除和备份中的残留清理分别要多久内完成？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            6,
+            4,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 123,
+          "question": "从哪一级开始，数据被禁止出境存储和处理？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            2,
+            4,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 124,
+          "question": "金牌伙伴获得的专属对接码，其格式前缀是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            2,
+            1,
+            4,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 125,
+          "question": "配备技术顾问的那一档伙伴，额外获得的角色简称是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            2,
+            1,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 126,
+          "question": "合作伙伴按年度业绩一共划分为几个层级？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            6,
+            0,
+            3
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 127,
+          "question": "金牌伙伴的客户续约率考核门槛是多少？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            6,
+            3,
+            2
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "oncall.md",
+            "nebula_api_deprecated.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Hybrid(BM25+Embedding)+Rerank",
+      "metrics": {
+        "recall@1": 0.9629629629629629,
+        "precision@1": 0.9629629629629629,
+        "recall@3": 1.0,
+        "precision@3": 0.35802469135802467,
+        "recall@5": 1.0,
+        "precision@5": 0.21481481481481485,
+        "mrr@10": 0.9814814814814815,
+        "mrr": 0.9814814814814815,
+        "latency_median_ms": 1467.25,
+        "latency_p95_ms": 1534.58,
+        "latency_mean_ms": 1472.82,
+        "index_bytes": 47936304,
+        "model_bytes": 1207993348,
+        "total_bytes": 1255929652
+      },
+      "by_dimension": {
+        "difficulty": {
+          "中等": {
+            "count": 15,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "困难": {
+            "count": 5,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.4666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.28,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "简单": {
+            "count": 7,
+            "recall@1": 0.8571428571428571,
+            "precision@1": 0.8571428571428571,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9285714285714286,
+            "mrr": 0.9285714285714286
+          }
+        },
+        "semantic": {
+          "同义改写": {
+            "count": 7,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "否定排除": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "字面匹配": {
+            "count": 15,
+            "recall@1": 0.9333333333333333,
+            "precision@1": 0.9333333333333333,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9666666666666667,
+            "mrr": 0.9666666666666667
+          },
+          "指代消解": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "跨文档多跳": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "事实抽取": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "定义": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "对比": {
+            "count": 2,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.6666666666666666,
+            "recall@5": 1.0,
+            "precision@5": 0.4,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "数值": {
+            "count": 14,
+            "recall@1": 0.9285714285714286,
+            "precision@1": 0.9285714285714286,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.9642857142857143,
+            "mrr": 0.9642857142857143
+          },
+          "标识": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "标识/错误码": {
+            "count": 1,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          },
+          "流程": {
+            "count": 3,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.20000000000000004,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 101,
+          "question": "Nebula 开放平台对外接口的基础域名是什么？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            4,
+            5,
+            7
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "partner_program.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 102,
+          "question": "Nebula 的 Token 默认有效期为多长时间？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            0,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 103,
+          "question": "平台对每个应用每秒窗口内的调用次数上限是多少？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            2,
+            6,
+            4,
+            0
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 104,
+          "question": "在已经下线的历史版本里，签名鉴权凭据的有效期是多久？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            0,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "data_governance.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 105,
+          "question": "Nebula v1 接口超出调用频次限制时返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "nebula_api_deprecated.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            6,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 106,
+          "question": "如果同一笔写请求被重复提交，服务端会如何处理？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            7,
+            2,
+            6,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api.md",
+            "refund_policy.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 107,
+          "question": "当前版本批量查询接口单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            1
+          ],
+          "gold_doc_names": [
+            "nebula_api.md"
+          ],
+          "retrieved_top5": [
+            2,
+            1,
+            6,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 108,
+          "question": "新注册企业每月获赠多少次调用额度？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            1,
+            2,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 109,
+          "question": "调用量超出免费额度之后，每一次调用要收多少钱？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            2,
+            1,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "oncall_sla.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 110,
+          "question": "单账户单月的费用上限是多少？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            4,
+            1,
+            7,
+            0
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "refund_policy.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 111,
+          "question": "账户欠费连续多少天后会被暂停全部接口调用权限？",
+          "gold_doc_ids": [
+            6
+          ],
+          "gold_doc_names": [
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            6,
+            1,
+            2,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "quota_billing.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "oncall_sla.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 112,
+          "question": "电子发票一般要多久才能开具完成？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            0,
+            6,
+            4,
+            2
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "data_governance.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 113,
+          "question": "预付费套餐的全额退款时限和账单的出账时限分别是多少？",
+          "gold_doc_ids": [
+            7,
+            6
+          ],
+          "gold_doc_names": [
+            "refund_policy.md",
+            "quota_billing.md"
+          ],
+          "retrieved_top5": [
+            7,
+            6,
+            4,
+            1,
+            0
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "quota_billing.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "data_governance.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 114,
+          "question": "纸质发票从申请到寄出大约需要多久？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "refund_policy.md"
+          ],
+          "retrieved_top5": [
+            7,
+            6,
+            0,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "refund_policy.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "oncall_sla.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 115,
+          "question": "值班交接固定在每周星期几的几点完成？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            6,
+            0,
+            7,
+            1
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "quota_billing.md",
+            "data_governance.md",
+            "refund_policy.md",
+            "nebula_api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 116,
+          "question": "一线值班在多长时间未响应时会被自动升级到二线？",
+          "gold_doc_ids": [
+            3
+          ],
+          "gold_doc_names": [
+            "oncall.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            1,
+            2,
+            6
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.6666666666666666,
+          "recall@5": 1.0,
+          "precision@5": 0.4,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 117,
+          "question": "一线升级到二线的时限，与 P0 事件的响应时限，分别是多少？",
+          "gold_doc_ids": [
+            3,
+            4
+          ],
+          "gold_doc_names": [
+            "oncall.md",
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            3,
+            4,
+            2,
+            1,
+            6
+          ],
+          "retrieved_top5_names": [
+            "oncall.md",
+            "oncall_sla.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 118,
+          "question": "核心接口的月度可用性最低要达到多少？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            2,
+            1,
+            5
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "partner_program.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 119,
+          "question": "月度可用性未达标时按当月费用的多少比例进行补偿？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "oncall_sla.md"
+          ],
+          "retrieved_top5": [
+            4,
+            6,
+            5,
+            3,
+            7
+          ],
+          "retrieved_top5_names": [
+            "oncall_sla.md",
+            "quota_billing.md",
+            "partner_program.md",
+            "oncall.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 120,
+          "question": "数据按敏感程度一共分为哪几个等级？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            5,
+            4,
+            1,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "partner_program.md",
+            "oncall_sla.md",
+            "nebula_api.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 121,
+          "question": "操作日志与访问审计日志一般保留多长时间？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            3,
+            2,
+            1,
+            6
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 122,
+          "question": "用户注销后，在线系统的删除和备份中的残留清理分别要多久内完成？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            6,
+            7,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "quota_billing.md",
+            "refund_policy.md",
+            "oncall_sla.md",
+            "oncall.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 123,
+          "question": "从哪一级开始，数据被禁止出境存储和处理？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "data_governance.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            6,
+            1,
+            2
+          ],
+          "retrieved_top5_names": [
+            "data_governance.md",
+            "oncall_sla.md",
+            "quota_billing.md",
+            "nebula_api.md",
+            "nebula_api_deprecated.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 124,
+          "question": "金牌伙伴获得的专属对接码，其格式前缀是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            6,
+            2,
+            1,
+            7
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "quota_billing.md",
+            "nebula_api_deprecated.md",
+            "nebula_api.md",
+            "refund_policy.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 125,
+          "question": "配备技术顾问的那一档伙伴，额外获得的角色简称是什么？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            1,
+            0,
+            2,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "nebula_api.md",
+            "data_governance.md",
+            "nebula_api_deprecated.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 126,
+          "question": "合作伙伴按年度业绩一共划分为几个层级？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            0,
+            4,
+            3,
+            6
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "data_governance.md",
+            "oncall_sla.md",
+            "oncall.md",
+            "quota_billing.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 127,
+          "question": "金牌伙伴的客户续约率考核门槛是多少？",
+          "gold_doc_ids": [
+            5
+          ],
+          "gold_doc_names": [
+            "partner_program.md"
+          ],
+          "retrieved_top5": [
+            5,
+            3,
+            2,
+            0,
+            7
+          ],
+          "retrieved_top5_names": [
+            "partner_program.md",
+            "oncall.md",
+            "nebula_api_deprecated.md",
+            "data_governance.md",
+            "refund_policy.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

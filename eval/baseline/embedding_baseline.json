@@ -1,0 +1,7 @@
+{
+  "method": "Pure Embedding",
+  "K": 1,
+  "valid_answerable_count": 40,
+  "avg_recall@1": 0.225,
+  "avg_mrr": 0.3694390331890332
+}

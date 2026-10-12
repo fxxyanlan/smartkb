@@ -1,0 +1,381 @@
+{
+  "tag": "v2",
+  "corpus_dir": "corpus_v2",
+  "dataset": "dataset_v2.jsonl",
+  "doc_count": 8,
+  "query_count": 34,
+  "type_distribution": {
+    "answerable": 27,
+    "oos": 4,
+    "vague": 3
+  },
+  "difficulty_distribution": {
+    "简单": 7,
+    "中等": 15,
+    "困难": 5,
+    "-": 7
+  },
+  "semantic_distribution": {
+    "字面匹配": 15,
+    "同义改写": 7,
+    "否定排除": 2,
+    "跨文档多跳": 2,
+    "指代消解": 4,
+    "-": 4
+  },
+  "qtype_distribution": {
+    "事实抽取": 3,
+    "数值": 14,
+    "标识/错误码": 1,
+    "流程": 3,
+    "对比": 2,
+    "定义": 3,
+    "标识": 1,
+    "不可答": 4,
+    "模糊": 3
+  },
+  "answerable_count": 27,
+  "lexical_overlap_mean": 0.6826,
+  "lexical_overlap_max": 0.9167,
+  "near_literal_count": 8,
+  "near_literal_ratio": 0.2963,
+  "must_contain_mean": 1.1111,
+  "doc_coverage": {
+    "data_governance.md": 4,
+    "nebula_api.md": 5,
+    "nebula_api_deprecated.md": 2,
+    "oncall.md": 3,
+    "oncall_sla.md": 3,
+    "partner_program.md": 4,
+    "quota_billing.md": 5,
+    "refund_policy.md": 3
+  },
+  "per_query": [
+    {
+      "id": 101,
+      "question": "Nebula 开放平台对外接口的基础域名是什么？",
+      "gold_docs": [
+        "nebula_api.md",
+        "nebula_api.md"
+      ],
+      "lexical_overlap": 0.8571,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "事实抽取"
+    },
+    {
+      "id": 102,
+      "question": "Nebula 的 Token 默认有效期为多长时间？",
+      "gold_docs": [
+        "nebula_api.md",
+        "nebula_api.md"
+      ],
+      "lexical_overlap": 0.5,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 103,
+      "question": "平台对每个应用每秒窗口内的调用次数上限是多少？",
+      "gold_docs": [
+        "nebula_api.md",
+        "nebula_api.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "数值"
+    },
+    {
+      "id": 104,
+      "question": "在已经下线的历史版本里，签名鉴权凭据的有效期是多久？",
+      "gold_docs": [
+        "nebula_api_deprecated.md",
+        "nebula_api_deprecated.md"
+      ],
+      "lexical_overlap": 0.6364,
+      "difficulty": "困难",
+      "semantic": "否定排除",
+      "qtype": "事实抽取"
+    },
+    {
+      "id": 105,
+      "question": "Nebula v1 接口超出调用频次限制时返回哪个 HTTP 状态码？",
+      "gold_docs": [
+        "nebula_api_deprecated.md",
+        "nebula_api_deprecated.md"
+      ],
+      "lexical_overlap": 0.6154,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "标识/错误码"
+    },
+    {
+      "id": 106,
+      "question": "如果同一笔写请求被重复提交，服务端会如何处理？",
+      "gold_docs": [
+        "nebula_api.md",
+        "nebula_api.md"
+      ],
+      "lexical_overlap": 0.5455,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "流程"
+    },
+    {
+      "id": 107,
+      "question": "当前版本批量查询接口单次最多可以传多少个 ID？",
+      "gold_docs": [
+        "nebula_api.md",
+        "nebula_api.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 108,
+      "question": "新注册企业每月获赠多少次调用额度？",
+      "gold_docs": [
+        "quota_billing.md",
+        "quota_billing.md"
+      ],
+      "lexical_overlap": 0.8889,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 109,
+      "question": "调用量超出免费额度之后，每一次调用要收多少钱？",
+      "gold_docs": [
+        "quota_billing.md",
+        "quota_billing.md"
+      ],
+      "lexical_overlap": 0.4167,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "数值"
+    },
+    {
+      "id": 110,
+      "question": "单账户单月的费用上限是多少？",
+      "gold_docs": [
+        "quota_billing.md",
+        "quota_billing.md"
+      ],
+      "lexical_overlap": 0.8333,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 111,
+      "question": "账户欠费连续多少天后会被暂停全部接口调用权限？",
+      "gold_docs": [
+        "quota_billing.md",
+        "quota_billing.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 112,
+      "question": "电子发票一般要多久才能开具完成？",
+      "gold_docs": [
+        "refund_policy.md",
+        "refund_policy.md"
+      ],
+      "lexical_overlap": 0.5,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "数值"
+    },
+    {
+      "id": 113,
+      "question": "预付费套餐的全额退款时限和账单的出账时限分别是多少？",
+      "gold_docs": [
+        "refund_policy.md",
+        "refund_policy.md",
+        "quota_billing.md"
+      ],
+      "lexical_overlap": 0.75,
+      "difficulty": "困难",
+      "semantic": "跨文档多跳",
+      "qtype": "对比"
+    },
+    {
+      "id": 114,
+      "question": "纸质发票从申请到寄出大约需要多久？",
+      "gold_docs": [
+        "refund_policy.md",
+        "refund_policy.md"
+      ],
+      "lexical_overlap": 0.6,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "数值"
+    },
+    {
+      "id": 115,
+      "question": "值班交接固定在每周星期几的几点完成？",
+      "gold_docs": [
+        "oncall.md",
+        "oncall.md"
+      ],
+      "lexical_overlap": 0.4444,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 116,
+      "question": "一线值班在多长时间未响应时会被自动升级到二线？",
+      "gold_docs": [
+        "oncall.md",
+        "oncall.md"
+      ],
+      "lexical_overlap": 0.7,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "流程"
+    },
+    {
+      "id": 117,
+      "question": "一线升级到二线的时限，与 P0 事件的响应时限，分别是多少？",
+      "gold_docs": [
+        "oncall.md",
+        "oncall.md",
+        "oncall_sla.md"
+      ],
+      "lexical_overlap": 0.8889,
+      "difficulty": "困难",
+      "semantic": "跨文档多跳",
+      "qtype": "对比"
+    },
+    {
+      "id": 118,
+      "question": "核心接口的月度可用性最低要达到多少？",
+      "gold_docs": [
+        "oncall_sla.md",
+        "oncall_sla.md"
+      ],
+      "lexical_overlap": 0.5714,
+      "difficulty": "中等",
+      "semantic": "同义改写",
+      "qtype": "数值"
+    },
+    {
+      "id": 119,
+      "question": "月度可用性未达标时按当月费用的多少比例进行补偿？",
+      "gold_docs": [
+        "oncall_sla.md",
+        "oncall_sla.md"
+      ],
+      "lexical_overlap": 0.6364,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 120,
+      "question": "数据按敏感程度一共分为哪几个等级？",
+      "gold_docs": [
+        "data_governance.md",
+        "data_governance.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": "简单",
+      "semantic": "字面匹配",
+      "qtype": "定义"
+    },
+    {
+      "id": 121,
+      "question": "操作日志与访问审计日志一般保留多长时间？",
+      "gold_docs": [
+        "data_governance.md",
+        "data_governance.md"
+      ],
+      "lexical_overlap": 0.7143,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    },
+    {
+      "id": 122,
+      "question": "用户注销后，在线系统的删除和备份中的残留清理分别要多久内完成？",
+      "gold_docs": [
+        "data_governance.md",
+        "data_governance.md"
+      ],
+      "lexical_overlap": 0.9167,
+      "difficulty": "困难",
+      "semantic": "同义改写",
+      "qtype": "流程"
+    },
+    {
+      "id": 123,
+      "question": "从哪一级开始，数据被禁止出境存储和处理？",
+      "gold_docs": [
+        "data_governance.md",
+        "data_governance.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": "中等",
+      "semantic": "否定排除",
+      "qtype": "定义"
+    },
+    {
+      "id": 124,
+      "question": "金牌伙伴获得的专属对接码，其格式前缀是什么？",
+      "gold_docs": [
+        "partner_program.md",
+        "partner_program.md"
+      ],
+      "lexical_overlap": 0.7273,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "标识"
+    },
+    {
+      "id": 125,
+      "question": "配备技术顾问的那一档伙伴，额外获得的角色简称是什么？",
+      "gold_docs": [
+        "partner_program.md",
+        "partner_program.md"
+      ],
+      "lexical_overlap": 0.5455,
+      "difficulty": "困难",
+      "semantic": "指代消解",
+      "qtype": "事实抽取"
+    },
+    {
+      "id": 126,
+      "question": "合作伙伴按年度业绩一共划分为几个层级？",
+      "gold_docs": [
+        "partner_program.md",
+        "partner_program.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "定义"
+    },
+    {
+      "id": 127,
+      "question": "金牌伙伴的客户续约率考核门槛是多少？",
+      "gold_docs": [
+        "partner_program.md",
+        "partner_program.md"
+      ],
+      "lexical_overlap": 0.875,
+      "difficulty": "中等",
+      "semantic": "字面匹配",
+      "qtype": "数值"
+    }
+  ]
+}

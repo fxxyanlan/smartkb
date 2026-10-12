@@ -1,0 +1,483 @@
+{
+  "tag": "v1",
+  "corpus_dir": "corpus",
+  "dataset": "dataset.jsonl",
+  "doc_count": 12,
+  "query_count": 50,
+  "type_distribution": {
+    "answerable": 40,
+    "oos": 6,
+    "vague": 4
+  },
+  "difficulty_distribution": {
+    "未标注": 50
+  },
+  "semantic_distribution": {
+    "未标注": 50
+  },
+  "qtype_distribution": {
+    "未标注": 50
+  },
+  "answerable_count": 40,
+  "lexical_overlap_mean": 0.6645,
+  "lexical_overlap_max": 0.8571,
+  "near_literal_count": 11,
+  "near_literal_ratio": 0.275,
+  "must_contain_mean": 1.0,
+  "doc_coverage": {
+    "api.md": 7,
+    "api_v2.md": 0,
+    "hr.md": 7,
+    "hr2.md": 0,
+    "ops.md": 6,
+    "ops_dr.md": 0,
+    "product.md": 0,
+    "security.md": 6,
+    "security2.md": 0,
+    "smartkb.md": 8,
+    "travel.md": 6,
+    "travel2.md": 0
+  },
+  "per_query": [
+    {
+      "id": 1,
+      "question": "SmartKB 用的是哪个大语言模型？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 2,
+      "question": "嵌入模型输出多少维的向量？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.8333,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 3,
+      "question": "向量数据库采用什么相似度度量？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.7143,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 4,
+      "question": "系统默认检索多少段相关内容？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.5714,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 5,
+      "question": "分块时相邻块之间保留多少字符的重叠？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.5556,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 6,
+      "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 7,
+      "question": "单个上传文件的大小上限是多少？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 8,
+      "question": "系统最多保留多少个会话？",
+      "gold_docs": [
+        "smartkb.md"
+      ],
+      "lexical_overlap": 0.8333,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 9,
+      "question": "公司每周的标准工时是多少小时？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.8333,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 10,
+      "question": "入职满一年可以享有多少天年假？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.7143,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 11,
+      "question": "年假的天数上限是多少？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.6,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 12,
+      "question": "新员工的试用期是多长时间？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.6,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 13,
+      "question": "试用期工资是转正后的百分之多少？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 14,
+      "question": "调休没有在有效期内用完会怎样？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.1667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 15,
+      "question": "事假连续超过 3 天需要谁审批？",
+      "gold_docs": [
+        "hr.md"
+      ],
+      "lexical_overlap": 0.75,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 16,
+      "question": "接口认证用的 token 有效期是多久？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.5,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 17,
+      "question": "接口默认限流是每分钟多少次请求？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.7143,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 18,
+      "question": "请求超出限流会返回哪个 HTTP 状态码？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.625,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 19,
+      "question": "批量查询单次最多可以传多少个 ID？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.5714,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 20,
+      "question": "v2 版本目前处于什么阶段？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 21,
+      "question": "哪个端点用于查询订单详情？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 22,
+      "question": "未认证时接口返回哪个错误码？",
+      "gold_docs": [
+        "api.md"
+      ],
+      "lexical_overlap": 0.5714,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 23,
+      "question": "数据库每天几点自动全量备份？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.5714,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 24,
+      "question": "备份文件会保留多少天？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.75,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 25,
+      "question": "监控告警通过什么渠道推送？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 26,
+      "question": "P0 级故障要求多久内响应？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.8333,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 27,
+      "question": "什么条件下会触发自动扩容？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.5,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 28,
+      "question": "故障复盘需要在几个工作日内完成？",
+      "gold_docs": [
+        "ops.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 29,
+      "question": "账号密码的长度要求是多少位？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 30,
+      "question": "密码多久需要强制更换一次？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 31,
+      "question": "公司数据分为几个等级？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.3333,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 32,
+      "question": "员工离职时权限什么时候回收？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.4286,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 33,
+      "question": "高危漏洞要求多久内修复？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 34,
+      "question": "发现越权访问会启动什么流程？",
+      "gold_docs": [
+        "security.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 35,
+      "question": "跨省出差需要谁审批？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.6,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 36,
+      "question": "飞机经济舱需要提前多久预订？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 37,
+      "question": "一线城市的住宿标准是每晚多少元？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.8571,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 38,
+      "question": "出差补贴是每天多少元？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.8,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 39,
+      "question": "差旅费报销需要在多久内提交？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.75,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    },
+    {
+      "id": 40,
+      "question": "住宿超过标准的部分怎么处理？",
+      "gold_docs": [
+        "travel.md"
+      ],
+      "lexical_overlap": 0.6667,
+      "difficulty": null,
+      "semantic": null,
+      "qtype": null
+    }
+  ]
+}

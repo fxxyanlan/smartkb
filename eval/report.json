@@ -1,52 +1,641 @@
 {
-  "corpus_docs": 12,
-  "corpus_chunks": 12,
-  "dataset_total": 50,
-  "answerable": 40,
-  "top_k": 4,
-  "vector_only": {
-    "answerable_total": 40,
-    "recall@1": 0.75,
-    "recall@4": 0.925,
-    "hits@1": 30,
-    "hits@4": 37,
-    "misses": [
-      {
-        "id": 7,
-        "question": "单个上传文件的大小上限是多少？"
-      },
-      {
-        "id": 8,
-        "question": "系统最多保留多少个会话？"
-      },
-      {
-        "id": 20,
-        "question": "v2 版本目前处于什么阶段？"
-      }
-    ],
-    "latency_ms_median": 13.2,
-    "oos_top1_sim_avg": 0.368
+  "summary": {
+    "K": 1,
+    "valid_answerable_count": 40,
+    "avg_recall@1": 1.0,
+    "avg_mrr": 1.0,
+    "total_query": 50
   },
-  "hybrid": {
-    "answerable_total": 40,
-    "recall@1": 0.875,
-    "recall@4": 1.0,
-    "hits@1": 35,
-    "hits@4": 40,
-    "misses": [],
-    "latency_ms_median": 12.8,
-    "oos_top1_sim_avg": 0.35
-  },
-  "rerank": {
-    "status": "skipped",
-    "model": "BAAI/bge-reranker-base",
-    "hint": "加 --rerank 或设 RERANK_ENABLED=true 后重跑"
-  },
-  "cache": {
-    "repeats": 50,
-    "hit_rate": 0.5,
-    "cold_median_ms": 13.13,
-    "warm_median_ms": 0.002,
-    "speedup": 7291.8
-  }
+  "details": [
+    {
+      "qid": 1,
+      "question": "SmartKB 用的是哪个大语言模型？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 2,
+      "question": "嵌入模型输出多少维的向量？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 3,
+      "question": "向量数据库采用什么相似度度量？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 4,
+      "question": "系统默认检索多少段相关内容？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 5,
+      "question": "分块时相邻块之间保留多少字符的重叠？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 6,
+      "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 7,
+      "question": "单个上传文件的大小上限是多少？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 8,
+      "question": "系统最多保留多少个会话？",
+      "gold_doc_name": "smartkb.md",
+      "gold_doc_ids": [
+        9
+      ],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 9,
+      "question": "公司每周的标准工时是多少小时？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 10,
+      "question": "入职满一年可以享有多少天年假？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 11,
+      "question": "年假的天数上限是多少？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 12,
+      "question": "新员工的试用期是多长时间？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 13,
+      "question": "试用期工资是转正后的百分之多少？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 14,
+      "question": "调休没有在有效期内用完会怎样？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 15,
+      "question": "事假连续超过 3 天需要谁审批？",
+      "gold_doc_name": "hr.md",
+      "gold_doc_ids": [
+        2
+      ],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 16,
+      "question": "接口认证用的 token 有效期是多久？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 17,
+      "question": "接口默认限流是每分钟多少次请求？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 18,
+      "question": "请求超出限流会返回哪个 HTTP 状态码？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 19,
+      "question": "批量查询单次最多可以传多少个 ID？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 20,
+      "question": "v2 版本目前处于什么阶段？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 21,
+      "question": "哪个端点用于查询订单详情？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 22,
+      "question": "未认证时接口返回哪个错误码？",
+      "gold_doc_name": "api.md",
+      "gold_doc_ids": [
+        0
+      ],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 23,
+      "question": "数据库每天几点自动全量备份？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 24,
+      "question": "备份文件会保留多少天？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 25,
+      "question": "监控告警通过什么渠道推送？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 26,
+      "question": "P0 级故障要求多久内响应？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 27,
+      "question": "什么条件下会触发自动扩容？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 28,
+      "question": "故障复盘需要在几个工作日内完成？",
+      "gold_doc_name": "ops.md",
+      "gold_doc_ids": [
+        4
+      ],
+      "retrieved_doc_ids": [
+        4
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 29,
+      "question": "账号密码的长度要求是多少位？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 30,
+      "question": "密码多久需要强制更换一次？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 31,
+      "question": "公司数据分为几个等级？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 32,
+      "question": "员工离职时权限什么时候回收？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 33,
+      "question": "高危漏洞要求多久内修复？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 34,
+      "question": "发现越权访问会启动什么流程？",
+      "gold_doc_name": "security.md",
+      "gold_doc_ids": [
+        7
+      ],
+      "retrieved_doc_ids": [
+        7
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 35,
+      "question": "跨省出差需要谁审批？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 36,
+      "question": "飞机经济舱需要提前多久预订？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 37,
+      "question": "一线城市的住宿标准是每晚多少元？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 38,
+      "question": "出差补贴是每天多少元？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 39,
+      "question": "差旅费报销需要在多久内提交？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 40,
+      "question": "住宿超过标准的部分怎么处理？",
+      "gold_doc_name": "travel.md",
+      "gold_doc_ids": [
+        10
+      ],
+      "retrieved_doc_ids": [
+        10
+      ],
+      "recall@1": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "qid": 41,
+      "question": "今天北京的天气怎么样？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 42,
+      "question": "请用 Python 写一个快速排序函数。",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        1
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 43,
+      "question": "请介绍一下量子计算的基本原理。",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 44,
+      "question": "2024 年诺贝尔物理学奖颁给了谁？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        2
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 45,
+      "question": "苹果公司最新的股价是多少？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        9
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 46,
+      "question": "红烧肉怎么做才好吃？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 47,
+      "question": "它有什么特点？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 48,
+      "question": "这个具体怎么操作？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        8
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 49,
+      "question": "还有别的注意事项吗？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        0
+      ],
+      "recall@1": null,
+      "mrr": null
+    },
+    {
+      "qid": 50,
+      "question": "能再详细说说吗？",
+      "gold_doc_name": null,
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        1
+      ],
+      "recall@1": null,
+      "mrr": null
+    }
+  ]
 }

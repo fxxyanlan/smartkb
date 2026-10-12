@@ -1,0 +1,10 @@
+{
+  "method": "Hybrid(BM25+Embedding)+Rerank",
+  "alpha": 0.5,
+  "rerank_model": "bge-reranker-base",
+  "top_k_retrieve": 10,
+  "K": 1,
+  "valid_answerable_count": 40,
+  "avg_recall@1": 1.0,
+  "avg_mrr": 1.0
+}

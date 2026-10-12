@@ -1,0 +1,5405 @@
+{
+  "tag": "v1",
+  "corpus_dir": "corpus",
+  "dataset": "dataset.jsonl",
+  "doc_count": 12,
+  "doc_names": [
+    "api.md",
+    "api_v2.md",
+    "hr.md",
+    "hr2.md",
+    "ops.md",
+    "ops_dr.md",
+    "product.md",
+    "security.md",
+    "security2.md",
+    "smartkb.md",
+    "travel.md",
+    "travel2.md"
+  ],
+  "query_count": 50,
+  "config": {
+    "embed_model": "all-MiniLM-L6-v2",
+    "alpha": 0.5,
+    "top_k_retrieve": 10,
+    "ks": [
+      1,
+      3,
+      5
+    ],
+    "mrr_k": 10,
+    "warmup_rounds": 1,
+    "measure_rounds": 2,
+    "rerank_model": "bge-reranker-base"
+  },
+  "results": [
+    {
+      "method": "BM25",
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@10": 1.0,
+        "mrr": 1.0,
+        "latency_median_ms": 0.15,
+        "latency_p95_ms": 0.22,
+        "latency_mean_ms": 0.16,
+        "index_bytes": 47929852,
+        "model_bytes": 0,
+        "total_bytes": 47929852
+      },
+      "by_dimension": {
+        "difficulty": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "semantic": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 1,
+          "question": "SmartKB 用的是哪个大语言模型？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            7,
+            8,
+            2
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "security.md",
+            "security2.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 2,
+          "question": "嵌入模型输出多少维的向量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            8,
+            2,
+            3
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "security2.md",
+            "hr.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 3,
+          "question": "向量数据库采用什么相似度度量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            4,
+            6,
+            0,
+            3
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "ops.md",
+            "product.md",
+            "api.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 4,
+          "question": "系统默认检索多少段相关内容？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            5,
+            1,
+            0
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "ops_dr.md",
+            "api_v2.md",
+            "api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 5,
+          "question": "分块时相邻块之间保留多少字符的重叠？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            4,
+            8,
+            5,
+            2
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "ops.md",
+            "security2.md",
+            "ops_dr.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 6,
+          "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            0,
+            1,
+            8
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "api.md",
+            "api_v2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 7,
+          "question": "单个上传文件的大小上限是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            2,
+            8,
+            11
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "hr.md",
+            "security2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 8,
+          "question": "系统最多保留多少个会话？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            5,
+            8,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "ops_dr.md",
+            "security2.md",
+            "ops.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 9,
+          "question": "公司每周的标准工时是多少小时？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            9,
+            11,
+            10,
+            8
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "smartkb.md",
+            "travel2.md",
+            "travel.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 10,
+          "question": "入职满一年可以享有多少天年假？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            1,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "api_v2.md",
+            "api.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 11,
+          "question": "年假的天数上限是多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            9,
+            8,
+            11,
+            6
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "smartkb.md",
+            "security2.md",
+            "travel2.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 12,
+          "question": "新员工的试用期是多长时间？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            9,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "smartkb.md",
+            "api.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 13,
+          "question": "试用期工资是转正后的百分之多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            9,
+            3,
+            8,
+            11
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "smartkb.md",
+            "hr2.md",
+            "security2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 14,
+          "question": "调休没有在有效期内用完会怎样？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            0,
+            5,
+            7
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "api.md",
+            "ops_dr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 15,
+          "question": "事假连续超过 3 天需要谁审批？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            3,
+            10,
+            4,
+            8
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "hr2.md",
+            "travel.md",
+            "ops.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 16,
+          "question": "接口认证用的 token 有效期是多久？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            8,
+            9,
+            1,
+            2
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "security2.md",
+            "smartkb.md",
+            "api_v2.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 17,
+          "question": "接口默认限流是每分钟多少次请求？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            9,
+            2,
+            4
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "smartkb.md",
+            "hr.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 18,
+          "question": "请求超出限流会返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            9,
+            4,
+            2
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "smartkb.md",
+            "ops.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 19,
+          "question": "批量查询单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            6,
+            2,
+            11
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "product.md",
+            "hr.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 20,
+          "question": "v2 版本目前处于什么阶段？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            4,
+            9,
+            2
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "ops.md",
+            "smartkb.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 21,
+          "question": "哪个端点用于查询订单详情？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "hr.md",
+            "hr2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 22,
+          "question": "未认证时接口返回哪个错误码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            8,
+            9,
+            5,
+            4
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "security2.md",
+            "smartkb.md",
+            "ops_dr.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 23,
+          "question": "数据库每天几点自动全量备份？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            5,
+            10,
+            8,
+            9
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "ops_dr.md",
+            "travel.md",
+            "security2.md",
+            "smartkb.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 24,
+          "question": "备份文件会保留多少天？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            9,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "smartkb.md",
+            "hr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 25,
+          "question": "监控告警通过什么渠道推送？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            9,
+            2,
+            0,
+            3
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "smartkb.md",
+            "hr.md",
+            "api.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 26,
+          "question": "P0 级故障要求多久内响应？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            2,
+            5,
+            9
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "hr.md",
+            "ops_dr.md",
+            "smartkb.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 27,
+          "question": "什么条件下会触发自动扩容？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            2,
+            0,
+            3
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "hr.md",
+            "api.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 28,
+          "question": "故障复盘需要在几个工作日内完成？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            5,
+            11,
+            8,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "ops_dr.md",
+            "travel2.md",
+            "security2.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 29,
+          "question": "账号密码的长度要求是多少位？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            9,
+            8,
+            2,
+            5
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "smartkb.md",
+            "security2.md",
+            "hr.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 30,
+          "question": "密码多久需要强制更换一次？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            11,
+            5,
+            8,
+            3
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "travel2.md",
+            "ops_dr.md",
+            "security2.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 31,
+          "question": "公司数据分为几个等级？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            2,
+            5,
+            3,
+            0
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "hr.md",
+            "ops_dr.md",
+            "hr2.md",
+            "api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 32,
+          "question": "员工离职时权限什么时候回收？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            2,
+            5,
+            4
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "hr.md",
+            "ops_dr.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 33,
+          "question": "高危漏洞要求多久内修复？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            2,
+            5,
+            9
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "ops.md",
+            "hr.md",
+            "ops_dr.md",
+            "smartkb.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 34,
+          "question": "发现越权访问会启动什么流程？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            2,
+            8,
+            5,
+            3
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "hr.md",
+            "security2.md",
+            "ops_dr.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 35,
+          "question": "跨省出差需要谁审批？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            5,
+            8,
+            2,
+            3
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "ops_dr.md",
+            "security2.md",
+            "hr.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 36,
+          "question": "飞机经济舱需要提前多久预订？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            2,
+            1,
+            3
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr.md",
+            "api_v2.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 37,
+          "question": "一线城市的住宿标准是每晚多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            9,
+            2,
+            8
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "smartkb.md",
+            "hr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 38,
+          "question": "出差补贴是每天多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            9,
+            0,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "smartkb.md",
+            "api.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 39,
+          "question": "差旅费报销需要在多久内提交？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            7,
+            2,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security.md",
+            "hr.md",
+            "ops.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 40,
+          "question": "住宿超过标准的部分怎么处理？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            2,
+            9,
+            11,
+            3
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr.md",
+            "smartkb.md",
+            "travel2.md",
+            "hr2.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Pure Embedding",
+      "metrics": {
+        "recall@1": 0.225,
+        "precision@1": 0.225,
+        "recall@3": 0.375,
+        "precision@3": 0.125,
+        "recall@5": 0.45,
+        "precision@5": 0.09,
+        "mrr@10": 0.34557539682539684,
+        "mrr": 0.3694390331890332,
+        "latency_median_ms": 8.69,
+        "latency_p95_ms": 9.59,
+        "latency_mean_ms": 8.73,
+        "index_bytes": 18480,
+        "model_bytes": 90852864,
+        "total_bytes": 90871344
+      },
+      "by_dimension": {
+        "difficulty": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.225,
+            "precision@1": 0.225,
+            "recall@3": 0.375,
+            "precision@3": 0.125,
+            "recall@5": 0.45,
+            "precision@5": 0.09,
+            "mrr@10": 0.34557539682539684,
+            "mrr": 0.3694390331890332
+          }
+        },
+        "semantic": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.225,
+            "precision@1": 0.225,
+            "recall@3": 0.375,
+            "precision@3": 0.125,
+            "recall@5": 0.45,
+            "precision@5": 0.09,
+            "mrr@10": 0.34557539682539684,
+            "mrr": 0.3694390331890332
+          }
+        },
+        "qtype": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.225,
+            "precision@1": 0.225,
+            "recall@3": 0.375,
+            "precision@3": 0.125,
+            "recall@5": 0.45,
+            "precision@5": 0.09,
+            "mrr@10": 0.34557539682539684,
+            "mrr": 0.3694390331890332
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.09090909090909091,
+          "qid": 1,
+          "question": "SmartKB 用的是哪个大语言模型？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            6,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "product.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 2,
+          "question": "嵌入模型输出多少维的向量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            10,
+            8,
+            5,
+            3,
+            11
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security2.md",
+            "ops_dr.md",
+            "hr2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 3,
+          "question": "向量数据库采用什么相似度度量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            8,
+            5,
+            11,
+            7,
+            4
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops_dr.md",
+            "travel2.md",
+            "security.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 4,
+          "question": "系统默认检索多少段相关内容？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            5,
+            11,
+            8,
+            7,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "travel2.md",
+            "security2.md",
+            "security.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 5,
+          "question": "分块时相邻块之间保留多少字符的重叠？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            8,
+            5,
+            10,
+            7,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops_dr.md",
+            "travel.md",
+            "security.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 6,
+          "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            2,
+            1,
+            4,
+            8
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "hr.md",
+            "api_v2.md",
+            "ops.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 7,
+          "question": "单个上传文件的大小上限是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            7,
+            2,
+            10,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "hr.md",
+            "travel.md",
+            "ops.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.08333333333333333,
+          "qid": 8,
+          "question": "系统最多保留多少个会话？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            8,
+            6,
+            11,
+            5,
+            7
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "product.md",
+            "travel2.md",
+            "ops_dr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 9,
+          "question": "公司每周的标准工时是多少小时？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            7,
+            10,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security.md",
+            "travel.md",
+            "ops.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 10,
+          "question": "入职满一年可以享有多少天年假？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            3,
+            10,
+            2,
+            11,
+            8
+          ],
+          "retrieved_top5_names": [
+            "hr2.md",
+            "travel.md",
+            "hr.md",
+            "travel2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 11,
+          "question": "年假的天数上限是多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            3,
+            10,
+            2,
+            11,
+            8
+          ],
+          "retrieved_top5_names": [
+            "hr2.md",
+            "travel.md",
+            "hr.md",
+            "travel2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.2,
+          "mrr": 0.2,
+          "qid": 12,
+          "question": "新员工的试用期是多长时间？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            8,
+            11,
+            5,
+            10,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "travel2.md",
+            "ops_dr.md",
+            "travel.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.16666666666666666,
+          "mrr": 0.16666666666666666,
+          "qid": 13,
+          "question": "试用期工资是转正后的百分之多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            5,
+            8,
+            10,
+            4,
+            7
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "security2.md",
+            "travel.md",
+            "ops.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.14285714285714285,
+          "mrr": 0.14285714285714285,
+          "qid": 14,
+          "question": "调休没有在有效期内用完会怎样？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            11,
+            6,
+            5,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel2.md",
+            "product.md",
+            "ops_dr.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 15,
+          "question": "事假连续超过 3 天需要谁审批？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            10,
+            7,
+            3
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "travel.md",
+            "security.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.09090909090909091,
+          "qid": 16,
+          "question": "接口认证用的 token 有效期是多久？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            8,
+            10,
+            11,
+            3,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.09090909090909091,
+          "qid": 17,
+          "question": "接口默认限流是每分钟多少次请求？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            4,
+            5,
+            8,
+            3,
+            7
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "ops_dr.md",
+            "security2.md",
+            "hr2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.2,
+          "mrr": 0.2,
+          "qid": 18,
+          "question": "请求超出限流会返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            11,
+            6,
+            8,
+            5,
+            0
+          ],
+          "retrieved_top5_names": [
+            "travel2.md",
+            "product.md",
+            "security2.md",
+            "ops_dr.md",
+            "api.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 19,
+          "question": "批量查询单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            6,
+            0,
+            8,
+            5,
+            1
+          ],
+          "retrieved_top5_names": [
+            "product.md",
+            "api.md",
+            "security2.md",
+            "ops_dr.md",
+            "api_v2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.1,
+          "mrr": 0.1,
+          "qid": 20,
+          "question": "v2 版本目前处于什么阶段？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            10,
+            7,
+            4,
+            2
+          ],
+          "retrieved_top5_names": [
+            "api_v2.md",
+            "travel.md",
+            "security.md",
+            "ops.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.09090909090909091,
+          "qid": 21,
+          "question": "哪个端点用于查询订单详情？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            8,
+            4,
+            5,
+            3,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops.md",
+            "ops_dr.md",
+            "hr2.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.0,
+          "mrr": 0.09090909090909091,
+          "qid": 22,
+          "question": "未认证时接口返回哪个错误码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            5,
+            4,
+            8,
+            7,
+            3
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "ops.md",
+            "security2.md",
+            "security.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.16666666666666666,
+          "mrr": 0.16666666666666666,
+          "qid": 23,
+          "question": "数据库每天几点自动全量备份？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            8,
+            10,
+            2,
+            3,
+            7
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "travel.md",
+            "hr.md",
+            "hr2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.14285714285714285,
+          "mrr": 0.14285714285714285,
+          "qid": 24,
+          "question": "备份文件会保留多少天？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            11,
+            2,
+            8,
+            6,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel2.md",
+            "hr.md",
+            "security2.md",
+            "product.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.125,
+          "mrr": 0.125,
+          "qid": 25,
+          "question": "监控告警通过什么渠道推送？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            5,
+            8,
+            11,
+            10,
+            2
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "security2.md",
+            "travel2.md",
+            "travel.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 26,
+          "question": "P0 级故障要求多久内响应？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            10,
+            4,
+            11,
+            8,
+            5
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "ops.md",
+            "travel2.md",
+            "security2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.2,
+          "mrr": 0.2,
+          "qid": 27,
+          "question": "什么条件下会触发自动扩容？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            11,
+            6,
+            5,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel2.md",
+            "product.md",
+            "ops_dr.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.14285714285714285,
+          "mrr": 0.14285714285714285,
+          "qid": 28,
+          "question": "故障复盘需要在几个工作日内完成？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            8,
+            3,
+            11,
+            10,
+            5
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "hr2.md",
+            "travel2.md",
+            "travel.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.125,
+          "mrr": 0.125,
+          "qid": 29,
+          "question": "账号密码的长度要求是多少位？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            5,
+            8,
+            11,
+            10,
+            4
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "security2.md",
+            "travel2.md",
+            "travel.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.16666666666666666,
+          "mrr": 0.16666666666666666,
+          "qid": 30,
+          "question": "密码多久需要强制更换一次？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            10,
+            3,
+            11,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr2.md",
+            "travel2.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 31,
+          "question": "公司数据分为几个等级？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            2,
+            7,
+            10,
+            4,
+            3
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security.md",
+            "travel.md",
+            "ops.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.16666666666666666,
+          "mrr": 0.16666666666666666,
+          "qid": 32,
+          "question": "员工离职时权限什么时候回收？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            8,
+            4,
+            5,
+            3,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops.md",
+            "ops_dr.md",
+            "hr2.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 33,
+          "question": "高危漏洞要求多久内修复？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            10,
+            7,
+            3,
+            11,
+            5
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security.md",
+            "hr2.md",
+            "travel2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 0.0,
+          "precision@5": 0.0,
+          "mrr@10": 0.1111111111111111,
+          "mrr": 0.1111111111111111,
+          "qid": 34,
+          "question": "发现越权访问会启动什么流程？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            11,
+            6,
+            5,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel2.md",
+            "product.md",
+            "ops_dr.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 35,
+          "question": "跨省出差需要谁审批？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            2,
+            8,
+            11,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr.md",
+            "security2.md",
+            "travel2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 36,
+          "question": "飞机经济舱需要提前多久预订？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            3,
+            8,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr2.md",
+            "security2.md",
+            "hr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 37,
+          "question": "一线城市的住宿标准是每晚多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            3,
+            5,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "ops_dr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 38,
+          "question": "出差补贴是每天多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            3,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "hr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 39,
+          "question": "差旅费报销需要在多久内提交？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            8,
+            4,
+            3,
+            11
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security2.md",
+            "ops.md",
+            "hr2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 40,
+          "question": "住宿超过标准的部分怎么处理？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            8,
+            5,
+            11,
+            3
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security2.md",
+            "ops_dr.md",
+            "travel2.md",
+            "hr2.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Hybrid(BM25+Embedding)",
+      "metrics": {
+        "recall@1": 0.7,
+        "precision@1": 0.7,
+        "recall@3": 0.975,
+        "precision@3": 0.325,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@10": 0.8270833333333334,
+        "mrr": 0.8270833333333334,
+        "latency_median_ms": 9.0,
+        "latency_p95_ms": 9.91,
+        "latency_mean_ms": 8.94,
+        "index_bytes": 47948332,
+        "model_bytes": 90852864,
+        "total_bytes": 138801196
+      },
+      "by_dimension": {
+        "difficulty": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.7,
+            "precision@1": 0.7,
+            "recall@3": 0.975,
+            "precision@3": 0.325,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.8270833333333334,
+            "mrr": 0.8270833333333334
+          }
+        },
+        "semantic": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.7,
+            "precision@1": 0.7,
+            "recall@3": 0.975,
+            "precision@3": 0.325,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.8270833333333334,
+            "mrr": 0.8270833333333334
+          }
+        },
+        "qtype": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 0.7,
+            "precision@1": 0.7,
+            "recall@3": 0.975,
+            "precision@3": 0.325,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 0.8270833333333334,
+            "mrr": 0.8270833333333334
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 1,
+          "question": "SmartKB 用的是哪个大语言模型？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            6,
+            9,
+            10,
+            8,
+            2
+          ],
+          "retrieved_top5_names": [
+            "product.md",
+            "smartkb.md",
+            "travel.md",
+            "security2.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 2,
+          "question": "嵌入模型输出多少维的向量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            10,
+            9,
+            8,
+            6,
+            5
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "smartkb.md",
+            "security2.md",
+            "product.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 3,
+          "question": "向量数据库采用什么相似度度量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            9,
+            5,
+            11
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "smartkb.md",
+            "ops_dr.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 4,
+          "question": "系统默认检索多少段相关内容？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            5,
+            6,
+            9,
+            11,
+            8
+          ],
+          "retrieved_top5_names": [
+            "ops_dr.md",
+            "product.md",
+            "smartkb.md",
+            "travel2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 5,
+          "question": "分块时相邻块之间保留多少字符的重叠？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            8,
+            5,
+            9,
+            4,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops_dr.md",
+            "smartkb.md",
+            "ops.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 6,
+          "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            1,
+            2,
+            8
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "api_v2.md",
+            "hr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 7,
+          "question": "单个上传文件的大小上限是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            7,
+            9,
+            2,
+            10,
+            4
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "smartkb.md",
+            "hr.md",
+            "travel.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.3333333333333333,
+          "mrr": 0.3333333333333333,
+          "qid": 8,
+          "question": "系统最多保留多少个会话？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            8,
+            5,
+            9,
+            6,
+            11
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops_dr.md",
+            "smartkb.md",
+            "product.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 9,
+          "question": "公司每周的标准工时是多少小时？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            7,
+            10,
+            11,
+            4
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security.md",
+            "travel.md",
+            "travel2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 10,
+          "question": "入职满一年可以享有多少天年假？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            3,
+            8,
+            10,
+            11
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "hr2.md",
+            "security2.md",
+            "travel.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 11,
+          "question": "年假的天数上限是多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            3,
+            10,
+            11,
+            8
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "hr2.md",
+            "travel.md",
+            "travel2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 12,
+          "question": "新员工的试用期是多长时间？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            11,
+            5,
+            10
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "travel2.md",
+            "ops_dr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 13,
+          "question": "试用期工资是转正后的百分之多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            3,
+            5,
+            10
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "hr2.md",
+            "ops_dr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 14,
+          "question": "调休没有在有效期内用完会怎样？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            5,
+            11,
+            6
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "ops_dr.md",
+            "travel2.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 15,
+          "question": "事假连续超过 3 天需要谁审批？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            10,
+            3,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "travel.md",
+            "hr2.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 16,
+          "question": "接口认证用的 token 有效期是多久？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            8,
+            0,
+            2,
+            1,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "api.md",
+            "hr.md",
+            "api_v2.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 17,
+          "question": "接口默认限流是每分钟多少次请求？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            0,
+            4,
+            5,
+            8
+          ],
+          "retrieved_top5_names": [
+            "api_v2.md",
+            "api.md",
+            "ops.md",
+            "ops_dr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 18,
+          "question": "请求超出限流会返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            11,
+            6,
+            8
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "travel2.md",
+            "product.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 19,
+          "question": "批量查询单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            6,
+            1,
+            8,
+            5
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "product.md",
+            "api_v2.md",
+            "security2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 20,
+          "question": "v2 版本目前处于什么阶段？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            1,
+            0,
+            10,
+            7,
+            4
+          ],
+          "retrieved_top5_names": [
+            "api_v2.md",
+            "api.md",
+            "travel.md",
+            "security.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 21,
+          "question": "哪个端点用于查询订单详情？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            8,
+            4,
+            5,
+            3
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "security2.md",
+            "ops.md",
+            "ops_dr.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 0.0,
+          "precision@3": 0.0,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.25,
+          "mrr": 0.25,
+          "qid": 22,
+          "question": "未认证时接口返回哪个错误码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            8,
+            5,
+            4,
+            0,
+            7
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "ops_dr.md",
+            "ops.md",
+            "api.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 23,
+          "question": "数据库每天几点自动全量备份？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            10,
+            8,
+            5,
+            2
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "travel.md",
+            "security2.md",
+            "ops_dr.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 24,
+          "question": "备份文件会保留多少天？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            2,
+            11,
+            7
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "hr.md",
+            "travel2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 25,
+          "question": "监控告警通过什么渠道推送？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            5,
+            8,
+            11,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "ops_dr.md",
+            "security2.md",
+            "travel2.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 26,
+          "question": "P0 级故障要求多久内响应？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            10,
+            11,
+            5
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "travel.md",
+            "travel2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 27,
+          "question": "什么条件下会触发自动扩容？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            11,
+            6,
+            8,
+            5
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "travel2.md",
+            "product.md",
+            "security2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 28,
+          "question": "故障复盘需要在几个工作日内完成？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            11,
+            5,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "travel2.md",
+            "ops_dr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 29,
+          "question": "账号密码的长度要求是多少位？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            5,
+            11,
+            4
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "ops_dr.md",
+            "travel2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 30,
+          "question": "密码多久需要强制更换一次？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            10,
+            3,
+            11,
+            8
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "travel.md",
+            "hr2.md",
+            "travel2.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 31,
+          "question": "公司数据分为几个等级？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            2,
+            3,
+            5,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "hr.md",
+            "hr2.md",
+            "ops_dr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 0.0,
+          "precision@1": 0.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 0.5,
+          "mrr": 0.5,
+          "qid": 32,
+          "question": "员工离职时权限什么时候回收？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            8,
+            7,
+            4,
+            5,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security2.md",
+            "security.md",
+            "ops.md",
+            "ops_dr.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 33,
+          "question": "高危漏洞要求多久内修复？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            10,
+            4,
+            3,
+            11
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "travel.md",
+            "ops.md",
+            "hr2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 34,
+          "question": "发现越权访问会启动什么流程？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            11,
+            6,
+            5
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "travel2.md",
+            "product.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 35,
+          "question": "跨省出差需要谁审批？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            8,
+            2,
+            11,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "security2.md",
+            "hr.md",
+            "travel2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 36,
+          "question": "飞机经济舱需要提前多久预订？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            3,
+            2,
+            8,
+            11
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr2.md",
+            "hr.md",
+            "security2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 37,
+          "question": "一线城市的住宿标准是每晚多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            3,
+            5,
+            8
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "ops_dr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 38,
+          "question": "出差补贴是每天多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            3,
+            2,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "hr.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 39,
+          "question": "差旅费报销需要在多久内提交？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            4,
+            7,
+            8,
+            2
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "ops.md",
+            "security.md",
+            "security2.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 40,
+          "question": "住宿超过标准的部分怎么处理？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            8,
+            2,
+            3
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "security2.md",
+            "hr.md",
+            "hr2.md"
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Hybrid(BM25+Embedding)+Rerank",
+      "metrics": {
+        "recall@1": 1.0,
+        "precision@1": 1.0,
+        "recall@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@5": 1.0,
+        "precision@5": 0.2,
+        "mrr@10": 1.0,
+        "mrr": 1.0,
+        "latency_median_ms": 1162.04,
+        "latency_p95_ms": 1828.38,
+        "latency_mean_ms": 1323.14,
+        "index_bytes": 47948332,
+        "model_bytes": 1203030532,
+        "total_bytes": 1250978864
+      },
+      "by_dimension": {
+        "difficulty": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "semantic": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        },
+        "qtype": {
+          "未标注": {
+            "count": 40,
+            "recall@1": 1.0,
+            "precision@1": 1.0,
+            "recall@3": 1.0,
+            "precision@3": 0.3333333333333333,
+            "recall@5": 1.0,
+            "precision@5": 0.2,
+            "mrr@10": 1.0,
+            "mrr": 1.0
+          }
+        }
+      },
+      "details": [
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 1,
+          "question": "SmartKB 用的是哪个大语言模型？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            8,
+            5,
+            2
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "security2.md",
+            "ops_dr.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 2,
+          "question": "嵌入模型输出多少维的向量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            4,
+            5,
+            8
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "ops.md",
+            "ops_dr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 3,
+          "question": "向量数据库采用什么相似度度量？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            4,
+            6,
+            7,
+            3
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "ops.md",
+            "product.md",
+            "security.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 4,
+          "question": "系统默认检索多少段相关内容？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            7,
+            6,
+            8,
+            5
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "security.md",
+            "product.md",
+            "security2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 5,
+          "question": "分块时相邻块之间保留多少字符的重叠？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            7,
+            8,
+            2,
+            10
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "security.md",
+            "security2.md",
+            "hr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 6,
+          "question": "混合检索的融合参数 rrf_k 默认取值是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            1,
+            7,
+            4
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "api_v2.md",
+            "security.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 7,
+          "question": "单个上传文件的大小上限是多少？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            1,
+            6,
+            7,
+            4
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "api_v2.md",
+            "product.md",
+            "security.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 8,
+          "question": "系统最多保留多少个会话？",
+          "gold_doc_ids": [
+            9
+          ],
+          "gold_doc_names": [
+            "smartkb.md"
+          ],
+          "retrieved_top5": [
+            9,
+            6,
+            7,
+            5,
+            4
+          ],
+          "retrieved_top5_names": [
+            "smartkb.md",
+            "product.md",
+            "security.md",
+            "ops_dr.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 9,
+          "question": "公司每周的标准工时是多少小时？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            4,
+            5,
+            10,
+            11
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "ops.md",
+            "ops_dr.md",
+            "travel.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 10,
+          "question": "入职满一年可以享有多少天年假？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            3,
+            8,
+            10,
+            7
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "hr2.md",
+            "security2.md",
+            "travel.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 11,
+          "question": "年假的天数上限是多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            10,
+            11,
+            3,
+            9
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "travel.md",
+            "travel2.md",
+            "hr2.md",
+            "smartkb.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 12,
+          "question": "新员工的试用期是多长时间？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            7,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "security.md",
+            "ops.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 13,
+          "question": "试用期工资是转正后的百分之多少？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            3,
+            4,
+            5,
+            10
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "hr2.md",
+            "ops.md",
+            "ops_dr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 14,
+          "question": "调休没有在有效期内用完会怎样？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            8,
+            4,
+            7,
+            0
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "security2.md",
+            "ops.md",
+            "security.md",
+            "api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 15,
+          "question": "事假连续超过 3 天需要谁审批？",
+          "gold_doc_ids": [
+            2
+          ],
+          "gold_doc_names": [
+            "hr.md"
+          ],
+          "retrieved_top5": [
+            2,
+            10,
+            8,
+            5,
+            6
+          ],
+          "retrieved_top5_names": [
+            "hr.md",
+            "travel.md",
+            "security2.md",
+            "ops_dr.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 16,
+          "question": "接口认证用的 token 有效期是多久？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            8,
+            7,
+            4,
+            5
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "security2.md",
+            "security.md",
+            "ops.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 17,
+          "question": "接口默认限流是每分钟多少次请求？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            5,
+            4,
+            7
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "ops_dr.md",
+            "ops.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 18,
+          "question": "请求超出限流会返回哪个 HTTP 状态码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            7,
+            8,
+            4
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "security.md",
+            "security2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 19,
+          "question": "批量查询单次最多可以传多少个 ID？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            6,
+            7,
+            8
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "product.md",
+            "security.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 20,
+          "question": "v2 版本目前处于什么阶段？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            1,
+            4,
+            7,
+            3
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "api_v2.md",
+            "ops.md",
+            "security.md",
+            "hr2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 21,
+          "question": "哪个端点用于查询订单详情？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            4,
+            1,
+            6,
+            7
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "ops.md",
+            "api_v2.md",
+            "product.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 22,
+          "question": "未认证时接口返回哪个错误码？",
+          "gold_doc_ids": [
+            0
+          ],
+          "gold_doc_names": [
+            "api.md"
+          ],
+          "retrieved_top5": [
+            0,
+            7,
+            1,
+            4,
+            8
+          ],
+          "retrieved_top5_names": [
+            "api.md",
+            "security.md",
+            "api_v2.md",
+            "ops.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 23,
+          "question": "数据库每天几点自动全量备份？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            5,
+            2,
+            7,
+            8
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "ops_dr.md",
+            "hr.md",
+            "security.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 24,
+          "question": "备份文件会保留多少天？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            8,
+            5,
+            7,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security2.md",
+            "ops_dr.md",
+            "security.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 25,
+          "question": "监控告警通过什么渠道推送？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            1,
+            2,
+            10
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "api_v2.md",
+            "hr.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 26,
+          "question": "P0 级故障要求多久内响应？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            5,
+            3,
+            6
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "ops_dr.md",
+            "hr2.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 27,
+          "question": "什么条件下会触发自动扩容？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            5,
+            8,
+            0
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "ops_dr.md",
+            "security2.md",
+            "api.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 28,
+          "question": "故障复盘需要在几个工作日内完成？",
+          "gold_doc_ids": [
+            4
+          ],
+          "gold_doc_names": [
+            "ops.md"
+          ],
+          "retrieved_top5": [
+            4,
+            7,
+            5,
+            8,
+            11
+          ],
+          "retrieved_top5_names": [
+            "ops.md",
+            "security.md",
+            "ops_dr.md",
+            "security2.md",
+            "travel2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 29,
+          "question": "账号密码的长度要求是多少位？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            5,
+            4,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "ops_dr.md",
+            "ops.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 30,
+          "question": "密码多久需要强制更换一次？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            1,
+            8,
+            5
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "ops.md",
+            "api_v2.md",
+            "security2.md",
+            "ops_dr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 31,
+          "question": "公司数据分为几个等级？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            3,
+            0,
+            2
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "ops.md",
+            "hr2.md",
+            "api.md",
+            "hr.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 32,
+          "question": "员工离职时权限什么时候回收？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            2,
+            4,
+            10
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "hr.md",
+            "ops.md",
+            "travel.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 33,
+          "question": "高危漏洞要求多久内修复？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            4,
+            5,
+            8,
+            6
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "ops.md",
+            "ops_dr.md",
+            "security2.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 34,
+          "question": "发现越权访问会启动什么流程？",
+          "gold_doc_ids": [
+            7
+          ],
+          "gold_doc_names": [
+            "security.md"
+          ],
+          "retrieved_top5": [
+            7,
+            8,
+            5,
+            1,
+            4
+          ],
+          "retrieved_top5_names": [
+            "security.md",
+            "security2.md",
+            "ops_dr.md",
+            "api_v2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 35,
+          "question": "跨省出差需要谁审批？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            5,
+            8,
+            2,
+            1
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "ops_dr.md",
+            "security2.md",
+            "hr.md",
+            "api_v2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 36,
+          "question": "飞机经济舱需要提前多久预订？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            5,
+            2,
+            11,
+            4
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "ops_dr.md",
+            "hr.md",
+            "travel2.md",
+            "ops.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 37,
+          "question": "一线城市的住宿标准是每晚多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            2,
+            3,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr.md",
+            "hr2.md",
+            "security.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 38,
+          "question": "出差补贴是每天多少元？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            2,
+            11,
+            3,
+            6
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "hr.md",
+            "travel2.md",
+            "hr2.md",
+            "product.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 39,
+          "question": "差旅费报销需要在多久内提交？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            2,
+            5,
+            8
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr.md",
+            "ops_dr.md",
+            "security2.md"
+          ]
+        },
+        {
+          "recall@1": 1.0,
+          "precision@1": 1.0,
+          "recall@3": 1.0,
+          "precision@3": 0.3333333333333333,
+          "recall@5": 1.0,
+          "precision@5": 0.2,
+          "mrr@10": 1.0,
+          "mrr": 1.0,
+          "qid": 40,
+          "question": "住宿超过标准的部分怎么处理？",
+          "gold_doc_ids": [
+            10
+          ],
+          "gold_doc_names": [
+            "travel.md"
+          ],
+          "retrieved_top5": [
+            10,
+            11,
+            2,
+            5,
+            7
+          ],
+          "retrieved_top5_names": [
+            "travel.md",
+            "travel2.md",
+            "hr.md",
+            "ops_dr.md",
+            "security.md"
+          ]
+        }
+      ]
+    }
+  ]
+}
